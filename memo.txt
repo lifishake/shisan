@@ -1,0 +1,55 @@
+http://gianlucaguarini.com/jQuery.BlackAndWhite/
+JQuery 彩色变黑白
+
+https://msdn.microsoft.com/en-us/library/gg589527(v=vs.85).aspx#canvas_black_and_white_getColorData
+html5 彩色变黑白
+
+https://stackoverflow.com/questions/562135/how-do-you-convert-a-color-image-to-black-white-using-javascript
+彩色变黑白
+
+gallery 效果 https://github.com/sachinchoolur/lightgallery.js/
+
+https://codepen.io/0x04/pen/qlayi
+扫描线效果
+
+https://gist.github.com/jojobyte/1626835
+扫描线效果
+
+图片效果
+https://css-tricks.com/almanac/properties/m/mix-blend-mode/
+
+配色备选
+https://fiftythree.com/paste
+
+1.图片转成600宽（200个扫描线）
+
+var picLength = picWidth * picHeight; // number of chunks
+var myImage = new Image(); // Create a new blank image.
+function getColorData() {
+
+        myImage = ctx.getImageData(0, 0, 600, 宽);
+
+        // Loop through data.
+        for (var i = 0; i < picLength * 4; i += 12) {
+
+          var myRed1 = myImage.data[i];
+          var myGreen1 = myImage.data[i + 1];
+          var myBlue = myImage.data[i + 2];
+          myGray1 = parseInt((myRed1 + myGreen1 + myBlue1) / 3);
+
+          myImage.data[i] = myGray;
+          myImage.data[i + 1] = myGray;
+          myImage.data[i + 2] = myGray;
+        }
+      }
+
+      function putColorData() {
+
+        ctx.putImageData(myImage, 0, 0);
+      }
+      
+      function noPhoto() {
+      
+        alert("Please put a .png file in this folder and name it kestral.png.");
+        
+        }
