@@ -1,12 +1,12 @@
 <?php
 /**
- * Custom template tags for Longform 1.0
+ * Custom template tags for Shisan 1.0
  *
  * @package WordPress
  * @subpackage Shisan
  * @since Shisan 1.0
  */
-if ( ! function_exists( 'longform_post_nav' ) ) :
+if ( ! function_exists( 'shisan_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  *
@@ -14,7 +14,7 @@ if ( ! function_exists( 'longform_post_nav' ) ) :
  *
  * @return void
  */
-function longform_post_nav() {
+function shisan_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -28,10 +28,10 @@ function longform_post_nav() {
 		<div class="nav-links">
 			<?php
 			if ( is_attachment() ) :
-				previous_post_link( '%link', __( '<span class="meta-nav">Published In</span>%title', 'longform' ) );
+				previous_post_link( '%link',  '<span class="meta-nav">发布于</span>%title' );
 			else :
-				previous_post_link( '%link', __( '<span class="glyphicon glyphicon-chevron-left"></span><span class="post-left">%title</span>', 'longform' ) );
-				next_post_link( '%link', __( '<span class="glyphicon glyphicon-chevron-right"></span><span class="post-right">%title</span>', 'longform' ) );
+				previous_post_link( '%link',  '<span class="glyphicon glyphicon-chevron-left"></span><span class="post-left">%title</span>' );
+				next_post_link( '%link', '<span class="glyphicon glyphicon-chevron-right"></span><span class="post-right">%title</span>' );
 			endif;
 			?>
 		</div><!-- .nav-links -->
@@ -72,49 +72,6 @@ function shisan_posted_on( $post_id = '' ) {
 endif;
 
 /**
- * Find out if blog has more than one category.
- *
- * @since Shisan 1.0
- *
- * @return boolean true if blog has more than 1 category
- */
-function longform_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'longform_category_count' ) ) ) {
-		// Create an array of all the categories that are attached to posts
-		$all_the_cool_cats = get_categories( array(
-			'hide_empty' => 1,
-		) );
-
-		// Count the number of categories that are attached to the posts
-		$all_the_cool_cats = count( $all_the_cool_cats );
-
-		set_transient( 'longform_category_count', $all_the_cool_cats );
-	}
-
-	if ( 1 !== (int) $all_the_cool_cats ) {
-		// This blog has more than 1 category so longform_categorized_blog should return true
-		return true;
-	} else {
-		// This blog has only 1 category so longform_categorized_blog should return false
-		return false;
-	}
-}
-
-/**
- * Flush out the transients used in longform_categorized_blog.
- *
- * @since Shisan 1.0
- *
- * @return void
- */
-function longform_category_transient_flusher() {
-	// Like, beat it. Dig?
-	delete_transient( 'longform_category_count' );
-}
-add_action( 'edit_category', 'longform_category_transient_flusher' );
-add_action( 'save_post',     'longform_category_transient_flusher' );
-
-/**
  * Display an optional post thumbnail.
  *
  * Wraps the post thumbnail in an anchor element on index
@@ -132,14 +89,14 @@ function longform_post_thumbnail() {
 	if ( is_single() ) :
 	?>
 	<?php
-		the_post_thumbnail( 'longform-huge-width' );
+		the_post_thumbnail( 'shisan-huge-width' );
 	?>
 
 	<?php else : ?>
 
 	<a class="post-thumbnail animated bounceIn" href="<?php the_permalink(); ?>">
 	<?php
-		the_post_thumbnail( 'longform-full-width' );
+		the_post_thumbnail( 'shisan-full-width' );
 	?>
 	</a>
 
@@ -152,7 +109,7 @@ function longform_post_thumbnail() {
  */
 function shisan_archive_title() {
   /*为了中文化,放弃wordpress自带的the_archive_title()*/
-  $format = '%1$s%2$s: %3$s%4$s';
+  $format = '%1$s归档方式：%2$s→%3$s%4$s';
   $before = '<h1 class="page-title">';
   $after = '</h1>';
   $part1='';
@@ -182,4 +139,12 @@ function shisan_archive_title() {
   }
   $out = sprintf($format, $before, $part1, $part2, $after);
   echo $out ;
+}
+
+function shisan_posts_pagination() {
+    the_posts_pagination( array(
+        'mid_size '=>10,
+        'prev_text' => '&larr;',
+        'next_text' => '&rarr;',
+    ) );
 }

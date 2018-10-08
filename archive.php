@@ -22,26 +22,16 @@ global $longform_site_width;
         <div id="content" class="site-content" role="main">
 
             <?php if ( have_posts() ) : ?>
-
             <header class="page-header">
-                shisan_archive_title();
+                <?php shisan_archive_title(); ?>
             </header><!-- .page-header -->
-
             <?php
-                    // Start the Loop.
                     while ( have_posts() ) : the_post();
                         get_template_part( 'content', get_post_format() );
                     endwhile;
-                    // Previous/next page navigation.
-                    the_posts_pagination( array(
-                        'mid_size '=>10,
-        				'prev_text' => '&larr;',
-        				'next_text' => '&rarr;',
-        			) );
+                    shisan_posts_pagination();
                 else :
-                    // If no content, include the "No posts found" template.
                     get_template_part( 'content', 'none' );
-
                 endif;
             ?>
         </div><!-- #content -->

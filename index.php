@@ -25,21 +25,12 @@ global $longform_site_width;
 
 		<?php
 			if ( have_posts() ) :
-				// Start the Loop.
 				while ( have_posts() ) : the_post();
 					get_template_part( 'content', get_post_format() );
 				endwhile;
-				// Previous/next post navigation.
-                the_posts_pagination( array(
-                    'mid_size '=>10,
-                    'prev_text' => '&larr;',
-                    'next_text' => '&rarr;',
-                ) );
-
+				shisan_posts_pagination();
 			else :
-				// If no content, include the "No posts found" template.
 				get_template_part( 'content', 'none' );
-
 			endif;
 		?>
 

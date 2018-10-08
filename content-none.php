@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying a "No posts found" message
+ * 用于显示 "没找到"信息
  *
  * @package WordPress
  * @subpackage Shisan
@@ -9,22 +9,22 @@
 ?>
 
 <header class="page-header">
-	<h1 class="page-title"><?php _e( 'Nothing Found', 'longform' ); ?></h1>
+	<h1 class="page-title">没找到</h1>
 </header>
 
 <div class="page-content">
 	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-	<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'longform' ), admin_url( 'post-new.php' ) ); ?></p>
+	<p><?php printf(  '来一发? <a href="%1$s">Get started here</a>.', admin_url( 'post-new.php' ) ); ?></p>
 
 	<?php elseif ( is_search() ) : ?>
 
-	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'longform' ); ?></p>
+	<p>没找到，不如试试换个关键字。</p>
 	<?php get_search_form(); ?>
 
 	<?php else : ?>
 
-	<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'longform' ); ?></p>
+	<p>您要访问的内容长腿跑了，试试把它找回来？</p>
 	<?php get_search_form(); ?>
 
 	<?php endif; ?>

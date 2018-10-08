@@ -31,7 +31,7 @@ get_header();
 						<span class="full-size-link"><a href="<?php echo wp_get_attachment_url(); ?>"><?php echo $metadata['width']; ?> &times; <?php echo $metadata['height']; ?></a></span>
 
 						<span class="parent-post-link"><a href="<?php echo get_permalink( $post->post_parent ); ?>" rel="gallery"><?php echo get_the_title( $post->post_parent ); ?></a></span>
-						<?php edit_post_link( __( 'Edit', 'longform' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php edit_post_link(  '编辑', '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-meta -->
 				</header><!-- .entry-header -->
 

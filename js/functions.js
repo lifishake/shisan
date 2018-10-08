@@ -12,6 +12,11 @@
 	var body    = $( 'body' ),
 		_window = $( window );
 
+    //toggle gravatar
+    $(document).on('click', '.show-form', function() {
+    		$('#author_info').toggle(300);
+    	});
+
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 100) {
 			$('.scroll-to-top').fadeIn();
@@ -71,11 +76,11 @@
 
 		if($(window).width() > 979) {
 			masthead_height = $('.site-header').height();
-			masthead_top    = $('.site-header').offset().top+$('.site-header').height()+50; 
+			masthead_top    = $('.site-header').offset().top+$('.site-header').height()+50;
 
-			if( y > masthead_top ) { 
-				$('.site-header').addClass('fixed'); 
-				padding_element.css('margin-top', (masthead_height)+'px'); 
+			if( y > masthead_top ) {
+				$('.site-header').addClass('fixed');
+				padding_element.css('margin-top', (masthead_height)+'px');
 			}
 
 			if( y > 150 ) {
@@ -97,7 +102,7 @@
 				$('.site-header, .progress-bar').removeClass('shrink');
 				$('body').removeClass('sticky_header_active');
 			}
-			
+
 			// Shrink menu on scroll
 			var didScroll = false;
 			$(window).scroll(function() {
@@ -109,12 +114,12 @@
 					didScroll = false;
 					y         = $(window).scrollTop();
 
-					if( y > masthead_top ) { 
-						$('.site-header').addClass('fixed'); 
-						padding_element.css('margin-top', (masthead_height)+'px'); 
-					} else { 
-						$('.site-header').removeClass('fixed'); 
-						padding_element.css('margin-top', ''); 
+					if( y > masthead_top ) {
+						$('.site-header').addClass('fixed');
+						padding_element.css('margin-top', (masthead_height)+'px');
+					} else {
+						$('.site-header').removeClass('fixed');
+						padding_element.css('margin-top', '');
 					}
 
 					if( y > 500 ) {
@@ -134,7 +139,7 @@
 						}
 
 						jQuery('.site-header, .progress-bar').removeClass('shrink');
-						jQuery('body').removeClass('sticky_header_active'); 
+						jQuery('body').removeClass('sticky_header_active');
 					}
 				}
 			}, 50);
@@ -150,7 +155,7 @@
 		}
 
 	} else {
-		jQuery('#page').addClass('static-header'); 
+		jQuery('#page').addClass('static-header');
 	}
 
 	// Enable menu toggle for small screens.
@@ -276,7 +281,7 @@ function scrollPageToTop(){
 
 		triggerBttn.addEventListener( 'click', toggleOverlay );
 		closeBttn.addEventListener( 'click', toggleOverlay );
-		
+
 		jQuery('a.scroll-nav__link').live('click', function() {
 			toggleOverlay();
 		});
@@ -303,7 +308,7 @@ function scrollPageToTop(){
 
 		triggerHBttn.addEventListener( 'click', toggleHOverlay );
 		closeHBttn.addEventListener( 'click', toggleHOverlay );
-		
+
 		jQuery('a.scroll-nav__link').live('click', function() {
 			toggleHOverlay();
 		});
@@ -380,7 +385,7 @@ function scrollPageToTop(){
 	}
 	// END - Story reading progress
 
-	// detect if IE : from http://stackoverflow.com/a/16657946		
+	// detect if IE : from http://stackoverflow.com/a/16657946
 	var ie = (function(){
 		var undef,rv = -1; // Return value assumes failure.
 		var ua = window.navigator.userAgent;
@@ -400,7 +405,7 @@ function scrollPageToTop(){
 	}());
 
 
-	// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
+	// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
 	// left: 37, up: 38, right: 39, down: 40,
 	// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
 	var keys = [37, 38, 39, 40], wheelIter = 0;
@@ -409,7 +414,7 @@ function scrollPageToTop(){
 		e = e || window.event;
 		if (e.preventDefault)
 		e.preventDefault();
-		e.returnValue = false;  
+		e.returnValue = false;
 	}
 
 	function keydown(e) {
@@ -426,7 +431,7 @@ function scrollPageToTop(){
 	}
 
 	function wheel(e) {
-		// for IE 
+		// for IE
 		//if( ie ) {
 			//preventDefault(e);
 		//}
@@ -439,13 +444,13 @@ function scrollPageToTop(){
 	}
 
 	function enable_scroll() {
-		window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+		window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
 	}
 
 	var docElem = window.document.documentElement,
 		scrollVal,
-		isRevealed, 
-		noscroll, 
+		isRevealed,
+		noscroll,
 		isAnimating;
 
 	function scrollY() {
@@ -454,7 +459,7 @@ function scrollPageToTop(){
 
 	function scrollPage() {
 		scrollVal = scrollY();
-		
+
 		if( noscroll && !ie ) {
 			if( scrollVal < 0 ) return false;
 			// keep it that way
@@ -469,7 +474,7 @@ function scrollPageToTop(){
 		if( isAnimating ) {
 			return false;
 		}
-		
+
 		if( scrollVal <= 0 && isRevealed ) {
 			toggle(0);
 		}
@@ -480,7 +485,7 @@ function scrollPageToTop(){
 
 	function toggle( reveal ) {
 		isAnimating = true;
-		
+
 		if( reveal ) {
 			jQuery('body').addClass( 'modify' );
 		}
@@ -522,5 +527,5 @@ function scrollPageToTop(){
 		jQuery('body').addClass( 'notrans' );
 		jQuery('body').addClass( 'modify' );
 	}
-	
+
 })();

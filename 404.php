@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found)
+ * 用于显示404页的模板 (Not Found)
  *
  * @package WordPress
  * @subpackage Shisan

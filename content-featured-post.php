@@ -11,7 +11,7 @@ global $longform_featured_post_class, $longform_featured_post_thumbnail;
 
 if ( empty($longform_featured_post_class) ) {
 	$longform_featured_post_class     = 'col-sm-3 col-md-3 col-lg-3';
-	$longform_featured_post_thumbnail = 'longform-thumbnail';
+	$longform_featured_post_thumbnail = 'shisan-thumbnail';
 }
 ?>
 
@@ -24,7 +24,7 @@ if ( empty($longform_featured_post_class) ) {
 					echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), $longform_featured_post_thumbnail );
 				endif;
 			?>
-			
+
 			<div class="slider-content">
 				<header class="entry-header">
 					<?php the_title( '<h2 class="entry-title">','</h2>' ); ?>

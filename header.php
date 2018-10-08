@@ -16,7 +16,7 @@
 <html class="ie ie8" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 7) | !(IE 8) ]><!-->
-<html <?php language_attributes(); ?>>
+<html lang="zh-CN" >
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -138,9 +138,7 @@ if ( ( ( LONGFORM_LAYOUT == 'sidebar-left' && is_active_sidebar( 'sidebar-1' ) )
 					</div>
 					<div class="hidden-on-menu">
 						<?php
-						// Previous/next post navigation.
-							longform_post_nav();
-
+							shisan_post_nav();
 
 						if ( function_exists('longform_aesop_component_exists') ) {
 
@@ -195,11 +193,9 @@ if ( ( ( LONGFORM_LAYOUT == 'sidebar-left' && is_active_sidebar( 'sidebar-1' ) )
 						if ( 'post' == get_post_type() )
 							shisan_posted_on();
 
-						if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && longform_categorized_blog() ) : ?>
+                                ?>
 							<span class="cat-links">/<?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'longform' ) ); ?></span>
 					<?php
-						endif;
-
 						if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
 					?>
 					<span class="comments-link">/<?php comments_popup_link( __( 'No Comments', 'longform' ), __( '1 Comment', 'longform' ), __( '% Comments', 'longform' ) ); ?></span>
@@ -215,13 +211,9 @@ if ( ( ( LONGFORM_LAYOUT == 'sidebar-left' && is_active_sidebar( 'sidebar-1' ) )
 				<div class="entry-meta">
 					<?php
 						if ( 'post' == get_post_type() )
-							longform_posted_on();
-
-						if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && longform_categorized_blog() ) : ?>
+							shisan_posted_on(); ?>
 							<span class="cat-links">/<?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'longform' ) ); ?></span>
 					<?php
-						endif;
-
 						if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
 					?>
 					<span class="comments-link">/<?php comments_popup_link( __( 'No Comments', 'longform' ), __( '1 Comment', 'longform' ), __( '% Comments', 'longform' ) ); ?></span>

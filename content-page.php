@@ -20,14 +20,7 @@
 			<?php the_content(); ?>
 		</div>
 		<?php
-			wp_link_pages( array(
-				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'longform' ) . '</span>',
-				'after'       => '</div>',
-				'link_before' => '<span>',
-				'link_after'  => '</span>',
-			) );
-
-			edit_post_link( __( 'Edit', 'longform' ), '<span class="edit-link">', '</span>' );
+			edit_post_link(  '编辑', '<span class="edit-link">', '</span>' );
 		?>
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->

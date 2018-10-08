@@ -1,6 +1,6 @@
 <?php
 /**
- * Longform 1.0 functions and definitions
+ * Shisan 1.0 functions and definitions
  *
  * Set up the theme and provides some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
@@ -33,7 +33,7 @@ require_once( get_template_directory() . '/functions/tgm-activation/class-tgm-pl
 /**
  * Set up the content width value based on the theme's design.
  *
- * @see longform_content_width()
+ * @see shisan_content_width()
  *
  * @since Shisan 1.0
  */
@@ -42,15 +42,15 @@ if ( ! isset( $content_width ) ) {
 }
 
 /**
- * Longform 1.0 only works in WordPress 3.6 or later.
+ * Shisan 1.0 only works in WordPress 3.6 or later.
  */
 if ( version_compare( $GLOBALS['wp_version'], '3.6', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
-if ( ! function_exists( 'longform_setup' ) ) :
+if ( ! function_exists( 'shisan_setup' ) ) :
 	/**
-	 * Longform 1.0 setup.
+	 * Shisan 1.0 setup.
 	 *
 	 * Set up theme defaults and registers support for various WordPress features.
 	 *
@@ -60,21 +60,7 @@ if ( ! function_exists( 'longform_setup' ) ) :
 	 *
 	 * @since Shisan 1.0
 	 */
-	function longform_setup() {
-		require(get_template_directory() . '/inc/metaboxes/layouts.php');
-
-		/*
-		 * Make Longform 1.0 available for translation.
-		 *
-		 * Translations can be added to the /languages/ directory.
-		 * If you're building a theme based on Longform 1.0, use a find and
-		 * replace to change 'longform' to the name of your theme in all
-		 * template files.
-		 */
-		load_theme_textdomain( 'longform', get_template_directory() . '/languages' );
-
-		// This theme styles the visual editor to resemble the theme style.
-		add_editor_style( array( 'css/editor-style.css' ) );
+	function shisan_setup() {
 
 		// Add RSS feed links to <head> for posts and comments.
 		add_theme_support( 'automatic-feed-links' );
@@ -82,15 +68,15 @@ if ( ! function_exists( 'longform_setup' ) ) :
 		// Enable support for Post Thumbnails, and declare two sizes.
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 672, 372, true );
-		add_image_size( 'longform-full-width', 1170, 600, true );
-		add_image_size( 'longform-huge-width', 1800, 1200, true );
-		add_image_size( 'longform-thumbnail', 490, 318, true );
-		add_image_size( 'longform-thumbnail-large', 650, 411, true );
+		add_image_size( 'shisan-full-width', 1170, 600, true );
+		add_image_size( 'shisan-huge-width', 1800, 1200, true );
+		add_image_size( 'shisan-thumbnail', 490, 318, true );
+		add_image_size( 'shisan-thumbnail-large', 490, 318, true );//与普通一样大小
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'primary'   => __( 'Top primary menu', 'longform' ),
-			'footer'    => __( 'Footer menu', 'longform' ),
+			'primary'   =>  'Top primary menu',
+			'footer'    => 'Footer menu',
 		) );
 
 		/*
@@ -106,17 +92,17 @@ if ( ! function_exists( 'longform_setup' ) ) :
 		 * See http://codex.wordpress.org/Post_Formats
 		 */
 		add_theme_support( 'post-formats', array(
-			'aside', 'image', 'video', 'audio', 'quote', 'link', 'gallery',
+			'aside', 'image', 'video', 'audio', 'quote', 'link'
 		) );
 
 		// This theme allows users to set a custom background.
-		add_theme_support( 'custom-background', apply_filters( 'longform_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'shisan_custom_background_args', array(
 			'default-color' => 'f5f5f5',
 		) ) );
 
 		// Add support for featured content.
 		add_theme_support( 'featured-content', array(
-			'featured_content_filter' => 'longform_get_featured_posts',
+			'featured_content_filter' => 'shisan_get_featured_posts',
 			'max_posts' => 6,
 		) );
 
@@ -124,7 +110,7 @@ if ( ! function_exists( 'longform_setup' ) ) :
 		add_filter( 'use_default_gallery_style', '__return_false' );
 	}
 endif; // longform_setup
-add_action( 'after_setup_theme', 'longform_setup' );
+add_action( 'after_setup_theme', 'shisan_setup' );
 
 // Admin CSS
 function vh_admin_css() {
@@ -167,15 +153,15 @@ add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
  *
  * @return array An array of WP_Post objects.
  */
-function longform_get_featured_posts() {
+function shisan_get_featured_posts() {
 	/**
-	 * Filter the featured posts to return in Longform 1.0.
+	 * Filter the featured posts to return in Shisan 1.0.
 	 *
 	 * @since Shisan 1.0
 	 *
 	 * @param array|bool $posts Array of featured posts, otherwise false.
 	 */
-	return apply_filters( 'longform_get_featured_posts', array() );
+	return apply_filters( 'shisan_get_featured_posts', array() );
 }
 
 /**
@@ -186,11 +172,11 @@ function longform_get_featured_posts() {
  * @return bool Whether there are featured posts.
  */
 function longform_has_featured_posts() {
-	return ! is_paged() && (bool) longform_get_featured_posts();
+	return ! is_paged() && (bool) shisan_get_featured_posts();
 }
 
 /**
- * Register three Longform 1.0 widget areas.
+ * Register three Shisan 1.0 widget areas.
  *
  * @since Shisan 1.0
  *
@@ -239,24 +225,6 @@ function longform_widgets_init() {
 add_action( 'widgets_init', 'longform_widgets_init' );
 
 /**
- * Register Lato Google font for Longform 1.0.
- *
- * @since Shisan 1.0
- *
- * @return string
- */
-function longform_font_url() {
-	$font_url = '';
-	/*
-	 * Translators: If there are characters in your language that are not supported
-	 * by Lato, translate this to 'off'. Do not translate into your own language.
-	 */
-	$font_url = add_query_arg( 'family', urlencode( 'Roboto:400,100,300' ), "//fonts.googleapis.com/css" );
-
-	return $font_url;
-}
-
-/**
  * Enqueue scripts and styles for the front end.
  *
  * @since Shisan 1.0
@@ -266,10 +234,6 @@ function longform_font_url() {
 function longform_scripts() {
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array() );
-
-	// Add Google fonts
-	wp_register_style('googleFonts', '//fonts.googleapis.com/css?family=Old+Standard+TT:400,700|PT+Serif:400|Merriweather:400,700|Open+Sans:700,400&subset=latin');
-	wp_enqueue_style( 'googleFonts');
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.2' );
@@ -293,14 +257,14 @@ function longform_scripts() {
 		wp_enqueue_script( 'jquery-masonry' );
 	}
 
-	// if ( is_front_page() && 'slider' == get_theme_mod( 'featured_content_layout' ) ) {
-	// 	wp_enqueue_script( 'longform-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20131205', true );
-	// }
-
 	wp_enqueue_script( 'longform-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20131209', true );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20131209', true );
 
 	wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.min.css', array() );
+    if (is_singular() && comments_open()){
+            wp_enqueue_script( 'shisan-ajax-comment', get_template_directory_uri() . '/inc/js/ajax-comment.js', array( 'jquery' ), '1.0' ,true);
+            wp_localize_script( 'shisan-ajax-comment', 'ajaxcomment', array( 'ajax_url'   => admin_url('admin-ajax.php')));
+    }
 }
 add_action( 'wp_enqueue_scripts', 'longform_scripts' );
 
@@ -322,7 +286,7 @@ if ( ! function_exists( 'longform_the_attached_image' ) ) :
 	function longform_the_attached_image() {
 		$post                = get_post();
 		/**
-		 * Filter the default Longform 1.0 attachment size.
+		 * Filter the default Shisan 1.0 attachment size.
 		 *
 		 * @since Shisan 1.0
 		 *
@@ -396,12 +360,8 @@ endif;
  * @param array $classes A list of existing body class values.
  * @return array The filtered body class list.
  */
-function longform_body_classes( $classes ) {
+function shisan_body_classes( $classes ) {
 	$longform_layout = '';
-
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
 
 	if ( is_single() || in_array('aesop-story-front', $classes) ) {
 		$classes[] = 'intro-effect-fadeout';
@@ -432,7 +392,7 @@ function longform_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'longform_body_classes' );
+add_filter( 'body_class', 'shisan_body_classes' );
 
 /**
  * Extend the default WordPress post classes.
@@ -445,16 +405,13 @@ add_filter( 'body_class', 'longform_body_classes' );
  * @param array $classes A list of existing post class values.
  * @return array The filtered post class list.
  */
-function longform_post_classes( $classes ) {
+function shisan_post_classes( $classes ) {
 	if ( ! post_password_required() && has_post_thumbnail() ) {
 		$classes[] = 'has-post-thumbnail';
 	}
-
-	$classes[] = 'aesop-entry-content';
-
 	return $classes;
 }
-add_filter( 'post_class', 'longform_post_classes' );
+add_filter( 'post_class', 'shisan_post_classes' );
 
 
 /* Related posts */
@@ -542,6 +499,7 @@ require get_template_directory() . '/inc/template-tags.php';
 // Add Theme Customizer functionality.
 require get_template_directory() . '/inc/customizer.php';
 
+require get_template_directory(). '/inc/ajax-comment.php' ;
 /*
  * Add Featured Content functionality.
  *
@@ -878,9 +836,9 @@ function vh_register_required_plugins() {
 			'notice_cannot_update' 						=> _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
 			'install_link' 					  			=> _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
 			'activate_link' 				  			=> _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
-			'return'                           			=> __( 'Return to Required Plugins Installer', 'longform' ),
-			'plugin_activated'                 			=> __( 'Plugin activated successfully.', 'longform' ),
-			'complete' 									=> __( 'All plugins installed and activated successfully. %s', 'longform' ), // %1$s = dashboard link
+			'return'                           			=> 'Return to Required Plugins Installer',
+			'plugin_activated'                 			=> 'Plugin activated successfully.',
+			'complete' 									=>  'All plugins installed and activated successfully. %s', // %1$s = dashboard link
 			'nag_type'									=> 'updated' // Determines admin notice type - can only be 'updated' or 'error'
 		)
 	);
@@ -986,3 +944,76 @@ function longform_admin_notice(){
 		<p>We made changes to Theme Options, your theme settings are now at <a href="'.$customizer_url.'">customizer</a> with your saved values and Option Tree is no longer needed.</p>
 	</div>';
 }
+
+/**
+ * 作用: 进行时间比较。
+ * 参数: $from string 开始时间
+ * 参数: $to string 结束时间
+ * 参数: $before string 前修饰文字
+ * 参数: $after string 后修饰文字
+ * 返回值: string
+ * 来源: 破袜子原创
+ */
+function shisan_timediff( $from, $to, $before, $after) {
+  if ( empty($from) || empty($to) )
+  return '';
+  if( empty($before) )
+  $before = '于';
+  if( empty($after) )
+  $after = '前';
+  $from_int = strtotime($from) ;
+  $to_int = strtotime($to) ;
+  $diff_time = abs($to_int - $from_int) ;
+  if ( $diff_time > 60 * 60 * 24 * 365 ){//年
+  $num = round($diff_time / (60 * 60 * 24 * 365));
+  $uni = '年';
+  }
+  else if ( $diff_time > 60 * 60 * 24 * 31 ) {//月
+  $num = round($diff_time / (60 * 60 * 24 * 30));
+  $uni = '个月';
+  }
+  else if ( $diff_time > 60 * 60 * 24 ) {//天
+  $num = round($diff_time / (60 * 60 * 24));
+  $uni = '天';
+  }
+  else if ( $diff_time > 60 * 60 ) { //小时
+  $num = round($diff_time / 3600);
+  $uni = '小时';
+  }
+  else { //分钟
+  $num = round($diff_time / 60);
+  $uni = '分';
+  }
+  $return = $before.$num.$uni.$after ;
+  return $return;
+}
+
+/**
+ * 作用: 取得文章发表的相对时间。
+ * 返回值: string
+ * 来源: 破袜子原创
+ */
+function shisan_rel_post_date() {
+  global $post;
+  $post_date_time = mysql2date('j-n-Y H:i:s', $post->post_date, false);
+  $current_time = current_time('timestamp');
+  $date_today_time = gmdate('j-n-Y H:i:s', $current_time);
+  return shisan_timediff( $post_date_time, $date_today_time ,'&nbsp;','前' ) ;
+}
+
+/**
+ * 作用: 取得评论发表的相对时间。
+ * 返回值: string
+ * 来源: 破袜子原创
+ */
+function shisan_rel_comment_date() {
+  global $post , $comment;
+  $post_date_time = mysql2date('j-n-Y H:i:s', $post->post_date, false);
+  $comment_date_time = mysql2date('j-n-Y H:i:s', $comment->comment_date, false);
+  return shisan_timediff( $post_date_time, $comment_date_time ,'&nbsp;','后' ) ;
+}
+
+/**
+ * AJAX-comment
+ */
+require_once get_parent_theme_file_path( '/inc/ajax-comment.php' );

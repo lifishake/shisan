@@ -16,12 +16,9 @@ global $longform_article_width;
 	<header class="entry-header">
 		<?php
 
-			if ( !is_single() ) :
-
-				if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && longform_categorized_blog() ) : ?>
+			if ( !is_single() ) : ?>
 					<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'longform' ) ); ?></span>
 			<?php
-				endif;
 					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 				?>
 
@@ -52,6 +49,9 @@ global $longform_article_width;
     			<?php the_content( ); ?>
     		</div>
     	</div><!-- .entry-content -->
-    	<?php endif; ?>
+    	<?php endif;
+            edit_post_link(  '编辑', '<span class="edit-link">', '</span>' );
+        ?>
+
 
 </article><!-- #post-## -->

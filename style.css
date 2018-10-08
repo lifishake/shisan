@@ -31,6 +31,10 @@ body, html {
 	height: 100%;
 }
 
+html {
+    font-family: Helvetica, Arial, Calibri, Avenir, 'Lucida Grande','Microsoft YaHei',STHeitiTC-Light,"PingFang TC", "Helvetica Neue", 'Microsoft JhengHei', 'Hiragino Sans GB', NSimSun, SimSun, SimHei, STXihei, STHeiti, sans-serif;
+}
+
 article,
 aside,
 details,
@@ -63,7 +67,6 @@ input,
 select,
 textarea {
 	color: #555555;
-	font-family: "Open Sans",Tahoma;
 	font-size: 18px;
 	font-weight: 400;
 }
@@ -74,7 +77,6 @@ progress {
 
 body {
 	background-color: #fff;
-	font-family: "Merriweather",Tahoma;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 1.7em;
@@ -125,7 +127,6 @@ h5,
 h6 {
 	clear: both;
 	margin: 36px 0 12px;
-	font-family: "Open Sans", Tahoma;
 	font-weight: 400;
 	color: #2B2B2C;
 }
@@ -249,7 +250,6 @@ blockquote {
 	color: #353535;
 	line-height: 1.2631578947;
 	margin-bottom: 30px;
-	font-family: "PT Serif";
 }
 
 blockquote:before {
@@ -271,7 +271,6 @@ blockquote:after {
 	text-align: center;
 	height: 50px;
 	line-height: 100px;
-	font-family: "PT Serif";
 }
 
 blockquote cite,
@@ -377,7 +376,6 @@ button,
 input,
 select,
 textarea {
-	font-family: "Open Sans";
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
@@ -516,7 +514,6 @@ span.title-first {
 	margin-left: -30px;
 	line-height: 31px;
 	font-weight: 300;
-	font-family: "Old Standard TT";
 	letter-spacing: -0.025em;
 	/*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);*/
 }
@@ -525,7 +522,6 @@ span.title-second {
 	display: block;
 	font-size: 2.6em;
 	text-transform: uppercase;
-	font-family: "Old Standard TT";
 	letter-spacing: -0.025em;
 	line-height: 32px;
 	/*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);*/
@@ -1082,7 +1078,6 @@ a.site-title {
 	color: #333;
 	font-weight: 900;
 	font-size: 46px;
-	font-family: "Merriweather", sans-serif;
 	line-height: 45px;
 	margin-top: 7px;
 	display: block;
@@ -1178,7 +1173,6 @@ p.site-description {
 .site-header .header-content {
 	height: 60px;
 	line-height: 60px;
-	font-family: "Open Sans";
 	/*overflow: hidden;*/
 }
 
@@ -2151,7 +2145,6 @@ body .aesop-cc-edit {
 	-webkit-transform: translateY(0);
 	transform: translateY(0);
 	font-size: 80%;
-	font-family: "Open Sans";
 }
 
 .intro-effect-fadeout .site-content > article,
@@ -2248,7 +2241,6 @@ body .aesop-cc-edit {
 	line-height: 1em;
 	color: #fff;
 	text-transform: uppercase;
-	font-family: "Open Sans";
 	display: block;
 
 	opacity: 0;
@@ -2288,7 +2280,6 @@ body .aesop-cc-edit {
 	color: #fff;
 	font-size: 80%;
 	line-height: 1.7em;
-	font-family: "Open Sans";
 
 	-webkit-transform: translateZ(-400px);
 	-moz-transform: translateZ(-400px);
@@ -2447,7 +2438,6 @@ h2.aesop-collection-entry-title:hover {
 	display: inline-block;
 	line-height: 23px;
 	color: #999;
-	font-family: "Merriweather";
 	min-width: 80px;
 	text-align: center;
 }
@@ -2489,7 +2479,6 @@ body .aesop-documument-component:before {
 	position: relative;
 	top: 1px;
 	display: inline-block;
-	font-family: 'Glyphicons Halflings';
 	font-style: normal;
 	font-weight: normal;
 	line-height: 1;
@@ -2509,7 +2498,6 @@ body .aesop-documument-component:before {
 	padding-left: 0;
 	text-transform: capitalize;
 	font-size: 1.5rem;
-	font-family: "Open Sans";
 	font-weight: 300;
 	display: block;
 }
@@ -2529,7 +2517,6 @@ body .aesop-documument-component:before {
 
 .aesop-documument-component a {
 	font-size: 14px;
-	font-family: "Merriweather", Tahoma;
 	color: #999;
 	margin: 0;
 	line-height: 14px;
@@ -2543,7 +2530,6 @@ body .aesop-documument-component:before {
 
 .aesop-image-component .aesop-image-component-caption {
 	margin-top: -1.5rem;
-	font-family: "Open Sans";
 	font-size: 14px;
 	margin-bottom: 0;
 
@@ -2569,7 +2555,6 @@ h2.aesop-cover-title {
 	font-size: 32px;
 	font-weight: 300;
 	color: #000;
-	font-family: "Old Standard TT";
 }
 
 h2.aesop-cover-title small {
@@ -2664,7 +2649,6 @@ body.admin-bar.single-post progress.shrink {
 	right: 10px;
 	font-size: 120px;
 	font-weight: 300;
-	font-family: "Merriweather";
 	opacity: 0.1;
 	color: #999;
 	z-index: 30;
@@ -2765,7 +2749,6 @@ body.sticky_header_active .story-progress-bar {
 	color: #fff;
 	right: -30px;
 	font-weight: 700;
-	font-family: "Old Standard TT";
 }
 
 .header_chapter_wrapper ol li,
@@ -2784,7 +2767,6 @@ body.sticky_header_active .story-progress-bar {
 	font-weight: 300;
 	display: block;
 	color: #fff;
-	font-family: "Old Standard TT";
 
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
@@ -2866,7 +2848,6 @@ body.sticky_header_active .story-progress-bar {
 	font-size: 14px;
 	line-height: 14px;
 	color: #bbb;
-	font-family: "Open Sans";
 	text-transform: uppercase;
 }
 
@@ -2934,7 +2915,6 @@ body.author .archive-header .author-social li a {
 
 body.author .archive-header .author-desc {
 	margin-bottom: 40px;
-	font-family: "Merriweather";
 	text-align: center;
 }
 
@@ -3128,7 +3108,6 @@ body.author .with_bg_image .archive-header .author-info-container {
 	margin: 0;
 	display: inline-block;
 	text-transform: uppercase;
-	font-family: "Open Sans";
 }
 
 .featured-slider .featured-content h2 span {
@@ -3145,7 +3124,6 @@ body.author .with_bg_image .archive-header .author-info-container {
 	text-align: left;
 	height: auto;
 	width: 80%;
-	font-family: "Open Sans";
 }
 
 /* Related articles */
@@ -3228,7 +3206,7 @@ body.author .with_bg_image .archive-header .author-info-container {
 	margin: 0;
 	display: inline-block;
 	text-transform: uppercase;
-	font-family: "Open Sans";}
+}
 
 .single .related-articles h2 span {
 	font-weight: 700;
@@ -3277,7 +3255,6 @@ body.author .with_bg_image .archive-header .author-info-container {
 	font-size: 14px;
 	text-transform: uppercase;
 	color: #bbb;
-	font-family: "Open Sans";
 	line-height: 35px;
 }
 
@@ -3325,7 +3302,6 @@ footer.entry-meta .tag-links a:hover {
 }
 
 body.single p.intro {
-	font-family: "Merriweather";
 	letter-spacing: 1px;
 	font-size: 20px;
 	font-weight: 700;
@@ -3334,7 +3310,6 @@ body.single p.intro {
 
 span.dropcap {
 	font-size: 80px;
-	font-family: "Merriweather";
 	min-height: 70px;
 	display: inline-block;
 	float: left;
@@ -3555,7 +3530,6 @@ body:not(.modify).intro-effect-fadeout .intro-effect-bg-img-container .entry-tit
 .site-content article .entry-header {
 	padding: 35px 0 45px;
 	text-align: center;
-	font-family: "Open Sans";
 }
 
 .site-content article.type-page.has-post-thumbnail .entry-header {
@@ -3607,7 +3581,6 @@ body:not(.modify).intro-effect-fadeout .intro-effect-bg-img-container .entry-tit
 	font-size: 16px;
 	margin-right: auto;
 	margin-left: auto;
-	font-family: "Open Sans";
 }
 
 .container.without_thumbnail .entry-meta a,
@@ -3967,7 +3940,6 @@ article .entry-content dd {
 	line-height: 25px;
 	text-align: left;
 	display: inline-block;
-	font-family: "Merriweather", sans-serif;
 	font-weight: 300;
 }
 
@@ -4026,7 +3998,6 @@ article .entry-content dd {
 	line-height: 22px;
 	margin-top: 0px;
 	display: inline-block;
-	font-family: "Open Sans";
 	font-weight: 400;
 	color: #000;
 }
@@ -4105,7 +4076,6 @@ article .entry-content dd {
 	overflow: hidden;
 	margin-bottom: 5px;
 	margin-right: 1px;
-	font-family: "Open Sans";
 }
 
 article.hentry .edit-link {
@@ -4124,7 +4094,6 @@ article.hentry .post-edit-link,
 	padding: 9px 19px;
 	border: 1px solid #E8E8E8;
 	line-height: 19px;
-	font-family: "Open Sans";
 }
 
 article.hentry .post-edit-link:hover,
@@ -4144,7 +4113,6 @@ article.hentry .more-link {
 	min-height: 40px;
 	width: 100%;
 	display: inline-block;
-	font-family: "Merriweather";
 
 	-webkit-transition: color 0.2s;
 	-moz-transition: color 0.2s;
@@ -4339,7 +4307,6 @@ article .entry-content table tr:nth-child(even) {
 .site-footer-wrapper footer {
 	margin-top: 30px;
 	position: relative;
-	font-family: "Open Sans", sans-serif;
 	font-size: 90%;
 }
 
@@ -4358,7 +4325,6 @@ article .entry-content table tr:nth-child(even) {
 }
 
 .site-info {
-	font-family: "Open sans", sans-serif;
 	height: auto;
 	line-height: 70px;
 	background-color: #333333;
@@ -4509,7 +4475,6 @@ article .entry-content table tr:nth-child(even) {
 }
 
 .slider .featured-slider .tabs a h4 {
-	font-family: "Merriweather", sans-serif;
 	letter-spacing: 1px;
 	margin-top: 0;
 	font-weight: 900;
@@ -5001,7 +4966,6 @@ article .entry-content table tr:nth-child(even) {
 	font-size: 70px;
 	line-height: 65px;
 	font-weight: 900;
-	font-family: "Merriweather", sans-serif;
 	margin-bottom: 30px;
 }
 
@@ -5019,6 +4983,35 @@ article .entry-content table tr:nth-child(even) {
 	font-size: 140%;
 	line-height: 32px;
 	font-weight: 100;
+}
+
+/*-----------------
+  ajax-comment
+-----------------*/
+.butterBar{
+    position:fixed;
+    text-align:center;
+    top:200px;
+    top:33vh;
+    width:180px;
+    margin: auto;
+    z-index:800;
+}
+.butterBar--center{
+    left:              44%;
+    left:    -moz-calc(50% - 92px);
+    left: -webkit-calc(50% - 92px);
+    left:         calc(50% - 92px);
+}
+
+.butterBar-message{
+    background:rgba(239,239,234,0.97);
+    color:#161619;
+    box-shadow:0 1px 1px rgba(0,0,0,0.25),0 0 1px rgba(0,0,0,0.35);
+    display:inline-block;
+    font-size:14px;
+    margin-bottom:0;
+    padding:12px 25px;
 }
 
 /* IE10 Windows Phone 8 Fixes */
@@ -5118,6 +5111,15 @@ div.wpcf7-mail-sent-ok {
 		margin-right: 15px;
 		max-width: 100%;
 	}
+
+    .no-comments,
+    .comment-warnning,
+    .comment-awaiting-moderation {
+    	color: #9ab7b2;
+    	font-size: 14px;
+    	font-size: 0.875rem;
+    	font-style: italic;
+    }
 
 	body .site-navigation.collapse,
 	.site-header.shrink .site-navigation,
