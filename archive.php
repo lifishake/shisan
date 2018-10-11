@@ -12,13 +12,10 @@
 
 get_header();
 
-global $longform_site_width;
+global $shisan_site_width;
 ?>
 <div id="main-content" class="main-content row">
-    <?php
-        get_sidebar();
-    ?>
-    <section id="primary" class="content-area <?php echo $longform_site_width; ?>">
+    <section id="primary" class="content-area <?php echo $shisan_site_width; ?>">
         <div id="content" class="site-content" role="main">
 
             <?php if ( have_posts() ) : ?>
@@ -36,7 +33,6 @@ global $longform_site_width;
             ?>
         </div><!-- #content -->
     </section><!-- #primary -->
-    <?php get_sidebar( 'content' ); ?>
 </div><!-- #main-content -->
 
 <?php

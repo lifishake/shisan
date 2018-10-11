@@ -81,7 +81,7 @@ endif;
  *
  * @return void
 */
-function longform_post_thumbnail() {
+function shisan_post_thumbnail() {
 	if ( post_password_required() || ! has_post_thumbnail() ) {
 		return;
 	}

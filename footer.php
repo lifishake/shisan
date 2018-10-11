@@ -21,9 +21,7 @@
 			<div class="site-info col-sm-12 col-md-12 col-lg-12">
 				<div class="site-info-content">
 					<div class="copyright">
-						<?php echo get_theme_mod('longform_copyright', ''); ?> 
-						<?php _e( 'Created by', 'longform' ); ?> <a href="http://cohhe.com/" target="_blank">Cohhe</a>. 
-						<?php _e( 'Proudly powered by', 'longform' ); ?> <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'longform' ) ); ?>" target="_blank"><?php _e( 'WordPress', 'longform' ); ?></a>
+						主题【<a href="http://cohhe.com/" target="_blank">十三</a>】修改自<a href="https://cohhe.com/project-view/longform/" target = "_blank">longform</a>，原作者 <a href="http://cohhe.com/" target="_blank">Cohhe</a>.
 					</div>
 					<div class="footer-menu">
 						<?php
@@ -37,15 +35,7 @@
 						?>
 					</div>
 				</div>
-				<?php
-				$show_scroll_to_top = get_theme_mod('longform_scrolltotop', false);
-
-				if ( $show_scroll_to_top ) {
-				?>
-					<a class="scroll-to-top" href="#"><?php _e( 'Up', 'longform' ); ?></a>
-				<?php
-				}
-				?>
+					<a class="scroll-to-top" href="#">Up</a>
 				<div class="clearfix"></div>
 			</div><!-- .site-info -->
 			<div class="clearfix"></div>

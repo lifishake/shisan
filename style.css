@@ -242,10 +242,6 @@ q:after {
 	content: none;
 }
 
-.aesop-quote-component blockquote {
-	padding: 20px;
-}
-
 blockquote {
 	color: #353535;
 	line-height: 1.2631578947;
@@ -579,8 +575,7 @@ body.single.sidebar-right .site-main .content-area {
 	width: none;
 }
 
-body p,
-body .aesop-content {
+body p {
 	width: 100%;
 	max-width: 800px;
 	margin: 0 auto;
@@ -1224,14 +1219,12 @@ p.site-description {
 }
 
 .single-post .site-header.fixed.shrink .main-header-right-side,
-.aesop-story-front .site-header.fixed.shrink .main-header-right-side,
 .menu-header-right-side,
 .reading-header-right-side {
 	display: none;
 }
 
-.single-post .site-header.fixed.shrink .reading-header-right-side,
-.aesop-story-front .site-header.fixed.shrink .reading-header-right-side {
+.single-post .site-header.fixed.shrink .reading-header-right-side {
 	display: inline-block;
 }
 
@@ -1315,10 +1308,7 @@ p.site-description {
 
 .single-post .site-header .header-main .reading-header-right-side .hidden-on-menu nav,
 .single-post .site-header .header-main .reading-header-right-side .header_chapter_container .chapters-link,
-.single-post .site-header .header-main .reading-header-right-side .header_highlight_container .highlight-link,
-.aesop-story-front .site-header .header-main .reading-header-right-side .hidden-on-menu nav,
-.aesop-story-front .site-header .header-main .reading-header-right-side .header_chapter_container .chapters-link,
-.aesop-story-front .site-header .header-main .reading-header-right-side .header_highlight_container .highlight-link {
+.single-post .site-header .header-main .reading-header-right-side .header_highlight_container .highlight-link {
 	-webkit-transform: translateY(0px);
 	-moz-transform:    translateY(0px);
 	-ms-transform:     translateY(0px);
@@ -1333,9 +1323,7 @@ p.site-description {
 }
 
 .single-post .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .hidden-on-menu nav,
-.single-post .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .header_chapter_container .chapters-link,
-.aesop-story-front .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .hidden-on-menu nav,
-.aesop-story-front .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .header_chapter_container .chapters-link {
+.single-post .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .header_chapter_container .chapters-link {
 	-webkit-transform: translateY(-70px);
 	-moz-transform:    translateY(-70px);
 	-ms-transform:     translateY(-70px);
@@ -1343,13 +1331,7 @@ p.site-description {
 	transform:         translateY(-70px);
 }
 
-.aesop-chapter-menu,
-.aesop-toggle-chapter-menu {
-	display: none;
-}
-
-.single-post .site-header.fixed.shrink .header-main .reading-header-right-side .site-navigation,
-.aesop-story-front .site-header.fixed.shrink .header-main .reading-header-right-side .site-navigation {
+.single-post .site-header.fixed.shrink .header-main .reading-header-right-side .site-navigation {
 	position: absolute;
 	right: 60px;
 	margin-top: 0;
@@ -1368,8 +1350,7 @@ p.site-description {
 	transition: all 0.4s;
 }
 
-.single-post .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .site-navigation,
-.aesop-story-front .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .site-navigation {
+.single-post .site-header.fixed.shrink .header-main.header-menu-active .reading-header-right-side .site-navigation {
 	-webkit-transform: translateY(0px);
 	-moz-transform:    translateY(0px);
 	-ms-transform:     translateY(0px);
@@ -1949,35 +1930,6 @@ p.site-description {
 	}
 }
 
-/* Aesop character carousel */
-
-.aesop-cc-carousel .owl-item .aesop-character-component .aesop-character-float.aesop-character-left .aesop-character-avatar {
-	clear: both;
-	width: 100% !important;
-	padding: 0 50px;
-	border-radius: 50%;
-}
-
-.aesop-cc-carousel .owl-item .aesop-character-component .aesop-character-float.aesop-character-left .aesop-character-title {
-	padding-left: 50px;
-	margin-bottom: 0 !important;
-	font-weight: normal !important;
-}
-
-.aesop-cc-carousel .owl-item .aesop-character-component .aesop-character-float .aesop-character-cap {
-	padding: 10px 50px;
-}
-
-body .aesop-cc-edit {
-	right: -50px;
-}
-
-.aesop-cc-edit:before {
-	content: '';
-	display: block;
-	clear: both;
-}
-
 /* Lasso */
 
 .site-content article .entry-content ul.lasso-component--controls {
@@ -1986,17 +1938,6 @@ body .aesop-cc-edit {
 
 .lasso--tour__modal ul {
 	max-width: none;
-}
-
-/* Gallery pop */
-
-.aesop-gallery-pop {
-	max-width: 800px;
-	margin: 0 auto;
-}
-
-.aesop-gallery-pop > a {
-	margin-bottom: 0;
 }
 
 /* Aesop social */
@@ -2031,20 +1972,6 @@ body .aesop-cc-edit {
 	color: #fff;
 	font-size: 23px;
 }
-
-.ase-social-links .aesop-social-twitter-link i {
-	background-color: #2ca9e0;
-}
-
-.ase-social-links .aesop-social-facebook-link i {
-	background-color: #3c5b9b;
-	font-size: 26px;
-}
-
-.ase-social-links .aesop-social-gplus-link i {
-	background-color: #f63e28;
-}
-
 /* Article intro effect */
 
 .intro-effect-fadeout:not(.notrans) .intro-effect-bg-img {
@@ -2181,402 +2108,6 @@ body .aesop-cc-edit {
 	display: block;
 	min-width: 100%;
 	min-height: 100%;
-}
-
-/* Aesop collections */
-
-.aesop-collection-item-link {
-	width: 100%;
-	margin: 0 auto;
-	display: block;
-	background: #000;
-}
-
-.aesop-collection-item-img {
-	height: 400px;
-	background-position: center;
-	opacity: 0.5;
-
-	webkit-backface-visibility: hidden;
-	-webkit-transition: all 0.35s;
-	transition: all 0.35s;
-}
-
-.aesop-collection-item:hover .aesop-collection-item-img {
-	-webkit-transform: scale3d(1.05,1.05,1);
-	transform: scale3d(1.05,1.05,1);
-	opacity: 0.7;
-}
-
-.aesop-collection-item {
-	float: left;
-	display: inline-block;
-	position: relative;
-	overflow: hidden;
-}
-
-.aesop-collection-item-inner {
-	position: absolute;
-	top: 25%;
-	left: 10%;
-	max-width: 80%;
-	z-index: 25;
-
-	-webkit-transform-style: preserve-3d;
-   -webkit-perspective: 1000px;
-}
-
-.aesop-collection-grid-4col .aesop-collection-item-inner {
-	top: 20%;
-}
-
-.aesop-collection-grid-5col .aesop-collection-item-inner {
-	top: 15%;
-}
-
-.aesop-collection-item-inner .aesop-collection-entry-title {
-	font-weight: 700;
-	font-size: 2.55em;
-	font-size: 2.4vw;
-	line-height: 1em;
-	color: #fff;
-	text-transform: uppercase;
-	display: block;
-
-	opacity: 0;
-	-webkit-transform: translateZ(-100px);
-	-moz-transform: translateZ(-100px);
-	-ms-transform: translateZ(-100px);
-	-o-transform: translateZ(-100px);
-	transform: translateZ(-100px);
-
-	-webkit-transition: opacity 0.3s, -moz-transform 0.3s;
-	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
-	transition: opacity 0.3s, -moz-transform 0.3s;
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	-moz-transition: opacity 0.3s, -webkit-transform 0.3s;
-	transition: opacity 0.3s, -webkit-transform 0.3s;
-	-webkit-transition: opacity 0.3s, transform 0.3s;
-	-moz-transition: opacity 0.3s, transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-}
-
-.aesop-collection-item-inner .aesop-collection-entry-title:hover {
-	color: #fff;
-}
-
-.aesop-collection-item:hover .aesop-collection-item-inner .aesop-collection-entry-title,
-.aesop-collection-item:hover .aesop-collection-item-inner .aesop-collection-item-excerpt {
-	opacity: 1;
-	-webkit-transform: translateZ(0px);
-	-moz-transform: translateZ(0px);
-	-ms-transform: translateZ(0px);
-	-o-transform: translateZ(0px);
-	transform: translateZ(0px);
-}
-
-.aesop-collection-item-excerpt {
-	opacity: 0;
-	color: #fff;
-	font-size: 80%;
-	line-height: 1.7em;
-
-	-webkit-transform: translateZ(-400px);
-	-moz-transform: translateZ(-400px);
-	-ms-transform: translateZ(-400px);
-	-o-transform: translateZ(-400px);
-	transform: translateZ(-400px);
-
-	-webkit-transition: opacity 0.2s, -moz-transform 0.2s;
-	-moz-transition: opacity 0.2s, -moz-transform 0.2s;
-	transition: opacity 0.2s, -moz-transform 0.2s;
-	-webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
-	-moz-transition: opacity 0.2s, -webkit-transform 0.2s;
-	transition: opacity 0.2s, -webkit-transform 0.2s;
-	-webkit-transition: opacity 0.2s, transform 0.2s;
-	-moz-transition: opacity 0.2s, transform 0.2s;
-	transition: opacity 0.2s, transform 0.2s;
-
-	-webkit-animation-delay: 0.3s;
-    animation-delay: 0.3s;
-}
-
-.aesop-collection-meta {
-	display: none;
-}
-
-/* Aesop characters */
-
-.aesop-character-component.aesop-component {
-	max-width: 800px;
-	margin: 0 auto;
-	float: none;
-}
-
-.site-content article .entry-content img.aesop-character-avatar {
-	float: none;
-	display: block;
-	border-radius: 50%;
-	margin-bottom: 10px;
-}
-
-p.aesop-character-cap {
-	font-size: 0.8rem;
-	width: 100%;
-	text-align: left;
-	line-height: 1.1rem;
-}
-
-span.aesop-character-title::before {
-	content: "";
-	border-top: 1px solid #C8C8C8;
-	display: block;
-	width: 40%;
-	right: 0;
-	position: absolute;
-	top: -5px;
-}
-
-.aesop-character-title {
-	display: block;
-	float: left;
-	margin-right: 30px;
-	font-size: 0.8rem;
-	color: #666;
-	position: relative;
-	font-style: italic;
-}
-
-.aesop-character-float.aesop-character-left {
-	margin-right: 30px;
-	float: left;
-	margin-left: -14%;
-}
-
-.aesop-character-float.aesop-character-right {
-	margin-left: 30px;
-	float: right;
-	margin-right: -14%;
-}
-
-.aesop-character-float.aesop-character-right .aesop-character-title {
-	float: right;
-	margin-right: 30px;
-	margin-left: 0;
-}
-
-/* Stories collection */
-
-h2.aesop-collection-entry-title {
-	margin-top: 5px;
-	font-weight: 400;
-	width: auto;
-	font-size: 0.9em;
-	color: #09c;
-
-	-webkit-transition: color linear 0.2s;
-	-moz-transition: color linear 0.2s;
-	-o-transition: color linear 0.2s;
-	transition: color linear 0.2s;
-}
-
-h2.aesop-collection-entry-title:hover {
-	color: #ff5c1a;
-}
-
-/* Timeline */
-
-.aesop-timeline {
-	position: fixed;
-	background: #333;
-	padding-bottom: 15px;
-	color: #fff;
-	bottom: 0;
-	width: 100%;
-	padding-top: 15px;
-
-	-webkit-transform: translateY(80px);
-	transform: translateY(80px);
-
-	-webkit-transition-duration: 0.5s;
-	transition-duration: 0.5s;
-}
-
-.aesop-timeline-stop {
-	text-align: center;
-}
-
-.aesop-timeline-stop:after {
-	content: "";
-	border-bottom: 2px solid #000;
-	width: 5%;
-	display: block;
-	margin: 20px auto 40px auto;
-}
-
-.timeline-in-view .aesop-timeline {
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-}
-
-.aesop-timeline ol:after {
-	display: none;
-}
-
-.aesop-timeline .scroll-nav__list {
-	border-bottom: 1px dotted #fff;
-	margin-bottom: 0;
-	list-style: none;
-	padding: 0 40px;
-	height: 40px;
-}
-
-.aesop-timeline .scroll-nav__item a {
-	color: #fff;
-	font-size: 23px;
-	padding-bottom: 0;
-	display: inline-block;
-	line-height: 23px;
-	color: #999;
-	min-width: 80px;
-	text-align: center;
-}
-
-.aesop-timeline .scroll-nav__item a:after {
-	content: '•';
-	color: #fff;
-	display: block;
-	text-align: center;
-	font-size: 29px;
-	line-height: 11px;
-	position: relative;
-	bottom: -10px;
-}
-
-.aesop-timeline li.scroll-nav__item {
-	display: inline-block;
-	margin-right: 30px;
-}
-
-.aesop-timeline li.scroll-nav__item.active.in-view a {
-	font-size: 32px;
-	color: #fff;
-}
-
-/* Aesop document */
-
-.aesop-documument-component.aesop-content {
-	max-width: 100%;
-}
-
-body .aesop-documument-component {
-	text-align: center;
-	background: #f8f8f8;
-	padding: 60px 0;
-}
-
-body .aesop-documument-component:before {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1;
-	content: "\e022";
-	display: block;
-	margin-bottom: 30px;
-	font-size: 3rem;
-	color: #999;
-
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.aesop-documument-component a span {
-	color: #09c;
-	border: 0;
-	padding-left: 0;
-	text-transform: capitalize;
-	font-size: 1.5rem;
-	font-weight: 300;
-	display: block;
-}
-
-.aesop-documument-component a br {
-	display: none;
-}
-
-.aesop-documument-component a:hover span {
-	color: #ff5c1a;
-}
-
-.aesop-documument-component a:focus {
-	outline: none;
-	text-decoration: none;
-}
-
-.aesop-documument-component a {
-	font-size: 14px;
-	color: #999;
-	margin: 0;
-	line-height: 14px;
-}
-
-/* Aesop image */
-
-.aesop-img-enlarge {
-	display: none;
-}
-
-.aesop-image-component .aesop-image-component-caption {
-	margin-top: -1.5rem;
-	font-size: 14px;
-	margin-bottom: 0;
-
-}
-
-.aesop-image-component .aesop-cap-cred,
-.aesop-image-component .aesop-img-enlarge {
-	text-transform: none;
-}
-
-.aesop-image-component .aesop-cap-cred {
-	font-style: italic;
-	color: #999;
-}
-
-/* Aesop chapters */
-
-h2.aesop-cover-title {
-	margin-bottom: 25px;
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-size: 32px;
-	font-weight: 300;
-	color: #000;
-}
-
-h2.aesop-cover-title small {
-	font-size: 0.55em;
-	display: block;
-	margin-top: 10px;
-}
-
-.aesop-article-chapter-wrap.has-chapter-image h2.aesop-cover-title {
-	margin-top: 0;
-	font-size: 52px;
-	color: #fff;
-	position: relative;
-	top: 50%;
-	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-	transform: translateY(-40%);
-	-webkit-transform: translateY(-40%);
-	-moz-transform: translateY(-40%);
-}
-
-.aesop-article-chapter-wrap.has-chapter-image h2.aesop-cover-title small {
-	color: #DFDFDF;
 }
 
 .single-post progress {
@@ -3455,10 +2986,6 @@ body.archive .site-content > article:nth-of-type(1) {
 	max-width: 100%;
 	height: auto;
 	margin-bottom: 30px;
-}
-
-.site-content article .entry-content .aesop-gallery-pop img {
-	margin-bottom: 0;
 }
 
 .site-content article .entry-content .wp-caption img {

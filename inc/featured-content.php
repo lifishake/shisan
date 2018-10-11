@@ -404,10 +404,10 @@ class Featured_Content {
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public static function customize_register( $wp_customize ) {
-		$wp_customize->add_section( 'featured_content', array(
-			'title'          => __( 'Featured Content', 'longform' ),
-			'description'    => sprintf( __( 'Use the <a href="%1$s">"featured" tag</a> to feature your posts. You can change this to a tag of your choice; if no posts match the tag, <a href="%2$s">sticky posts</a> will be displayed instead.', 'longform' ), admin_url( '/edit.php?tag=featured' ), admin_url( '/edit.php?show_sticky=1' ) ),
-			'priority'       => 130,
+		  $wp_customize->add_section( 'featured_content', array(
+             'title'       => '特色内容',
+    		'description' => sprintf(  '设定一个 <a href="%1$s">标签</a> 作为特色文章的标志。如果没有符合这个标签的文章，则显示 <a href="%2$s">置顶文章</a>', admin_url( '/edit.php?tag=featured' ), admin_url( '/edit.php?show_sticky=1' ) ),
+    		'priority'    => 130,
 			'theme_supports' => 'featured-content',
 		) );
 
@@ -425,12 +425,12 @@ class Featured_Content {
 
 		// Add Featured Content controls.
 		$wp_customize->add_control( 'featured-content[tag-name]', array(
-			'label'    => __( 'Tag Name', 'longform' ),
+			'label'    => '标签名',
 			'section'  => 'featured_content',
 			'priority' => 20,
 		) );
 		$wp_customize->add_control( 'featured-content[hide-tag]', array(
-			'label'    => __( 'Don&rsquo;t display tag on front end.', 'longform' ),
+			'label'    => '不显示tag',
 			'section'  => 'featured_content',
 			'type'     => 'checkbox',
 			'priority' => 30,

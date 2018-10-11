@@ -36,24 +36,12 @@ get_header();
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
-					<div class="entry-attachment">
-						<div class="attachment">
-							<?php longform_the_attached_image(); ?>
-						</div><!-- .attachment -->
-
-						<?php if ( has_excerpt() ) : ?>
-						<div class="entry-caption">
-							<?php the_excerpt(); ?>
-						</div><!-- .entry-caption -->
-						<?php endif; ?>
-					</div><!-- .entry-attachment -->
-
 					<div id="entry-content-wrapper">
 						<?php the_content(); ?>
 					</div>
 					<?php
 						wp_link_pages( array(
-							'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'longform' ) . '</span>',
+							'before'      => '<div class="page-links"><span class="page-links-title">页:</span>',
 							'after'       => '</div>',
 							'link_before' => '<span>',
 							'link_after'  => '</span>',
@@ -64,8 +52,8 @@ get_header();
 
 			<nav id="image-navigation" class="navigation image-navigation">
 				<div class="nav-links">
-				<?php previous_image_link( false, '<div class="previous-image">' . __( 'Previous Image', 'longform' ) . '</div>' ); ?>
-				<?php next_image_link( false, '<div class="next-image">' . __( 'Next Image', 'longform' ) . '</div>' ); ?>
+				<?php previous_image_link( false, '<div class="previous-image">前一张</div>' ); ?>
+				<?php next_image_link( false, '<div class="next-image">后一张</div>' ); ?>
 				</div><!-- .nav-links -->
 			</nav><!-- #image-navigation -->
 
@@ -77,5 +65,4 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

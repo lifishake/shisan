@@ -251,43 +251,10 @@ function scrollPageToTop(){
 	jQuery('body').css('height', 'auto');
 	jQuery("html, body").animate({ scrollTop: 0 }, "slow");
 
-	// if( longform.device != 'desktop' ){
-		// jQuery('body').scrollTop(0);
-	// }else{
-	// 	jQuery('.content-wrapper').scrollTop(0);
-	// }
-
 	jQuery('body').css('height', '');
 }
 
 (function() {
-
-	if( jQuery('.header_chapter_wrapper').length != 0 ) {
-
-		// Chapter open overlay functionality
-		var triggerBttn = document.getElementById( 'trigger-chapters-overlay' ),
-			overlay = document.querySelector( 'div.header_chapter_wrapper' ),
-			closeBttn = overlay.querySelector( 'button.overlay-close' );
-
-		function toggleOverlay() {
-			if( jQuery('div.header_chapter_wrapper').hasClass( 'open' ) ) {
-				jQuery('div.header_chapter_wrapper').removeClass( 'open' );
-				jQuery('div.header_chapter_wrapper').addClass( 'o-close' );
-			} else {
-				jQuery('div.header_chapter_wrapper').removeClass( 'o-close' );
-				jQuery('div.header_chapter_wrapper').addClass( 'open' );
-			}
-		}
-
-		triggerBttn.addEventListener( 'click', toggleOverlay );
-		closeBttn.addEventListener( 'click', toggleOverlay );
-
-		jQuery('a.scroll-nav__link').live('click', function() {
-			toggleOverlay();
-		});
-		// END - Chapter open overlay functionality
-
-	}
 
 	if ( jQuery('.header_highlight_wrapper').length != 0 ) {
 
@@ -379,9 +346,6 @@ function scrollPageToTop(){
 
 	if ( jQuery(".single-post .site-content article .entry-content").length ) {
 		jQuery(".single-post .site-content article .entry-content").scrollProgress();
-	}
-	if ( jQuery(".aesop-story-front .site-main article .entry-content").length ) {
-		jQuery(".aesop-story-front .site-main article .entry-content").scrollProgress();
 	}
 	// END - Story reading progress
 
@@ -520,7 +484,7 @@ function scrollPageToTop(){
 			jQuery('body').addClass( 'modify' );
 		}
 
-		if ( jQuery('body').hasClass('single-post') || jQuery('body').hasClass('aesop-story-front') ) {
+		if ( jQuery('body').hasClass('single-post') ) {
 			window.addEventListener( 'scroll', scrollPage );
 		}
 	} else if ( jQuery('body').hasClass('single-post') && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

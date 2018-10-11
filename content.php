@@ -9,15 +9,14 @@
  * @since Shisan 1.0
  */
 
-global $longform_article_width;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($longform_article_width); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
 
 			if ( !is_single() ) : ?>
-					<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'longform' ) ); ?></span>
+					<span class="cat-links"><?php the_category(', '); ?></span>
 			<?php
 					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 				?>
