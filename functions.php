@@ -181,14 +181,11 @@ function shisan_scripts() {
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array() );
 
-	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.2' );
-
 	// Load our main stylesheet.
-	wp_enqueue_style( 'shisan-style', get_stylesheet_uri(), array( 'genericons' ) );
+	wp_enqueue_style( 'shisan-style', get_stylesheet_uri(), array(),'20181009');
 
 	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'shisan-ie', get_template_directory_uri() . '/css/ie.css', array( 'shisan-style', 'genericons' ), '20181009' );
+	wp_enqueue_style( 'shisan-ie', get_template_directory_uri() . '/css/ie.css', array( 'shisan-style' ), '20181009' );
 	wp_style_add_data( 'shisan-ie', 'conditional', 'lt IE 9' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

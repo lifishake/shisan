@@ -35,7 +35,7 @@
 						?>
 					</div>
 				</div>
-					<a class="scroll-to-top" href="#">Up</a>
+					<a class="scroll-to-top" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
 				<div class="clearfix"></div>
 			</div><!-- .site-info -->
 			<div class="clearfix"></div>

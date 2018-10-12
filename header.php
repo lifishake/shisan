@@ -39,7 +39,6 @@ $shisan_site_width    = 'col-sm-12 col-md-12 col-lg-12';
 $layout_type   = 'full';
 ?>
 <body <?php body_class(); ?>>
-<?php do_action('ase_theme_body_inside_top'); ?>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<div class="search-toggle">

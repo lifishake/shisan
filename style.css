@@ -2124,7 +2124,6 @@ p.site-description {
 
 body.admin-bar.single-post progress.shrink {
 	top: 32px;
-
 	-webkit-transition: top 0.7s ease-in-out 0s;
 	-moz-transition: top 0.7s ease-in-out 0s;
 	-o-transition: top 0.7s ease-in-out 0s;
@@ -2134,7 +2133,6 @@ body.admin-bar.single-post progress.shrink {
 
 .sticky_header_active.single-post progress.shrink {
 	top: 0;
-
 	-webkit-transition: top 0.7s ease-in-out 0s;
 	-moz-transition: top 0.7s ease-in-out 0s;
 	-o-transition: top 0.7s ease-in-out 0s;
@@ -2226,16 +2224,6 @@ body.sticky_header_active .story-progress-bar {
 	top: -1px;
 	position: relative;
 	margin-right: 3px;
-}
-
-.header_highlight_container .genericon-book {
-	font-size: 23px;
-	width: 23px;
-	height: 23px;
-	line-height: 23px;
-	vertical-align: middle;
-	top: -2px;
-	position: relative;
 }
 
 .header_chapter_wrapper .overlay-close,
@@ -3215,38 +3203,16 @@ article .entry-content dd {
 	transition: all 0.20s;
 }
 
-.widget_nav_menu ul,
-.widget_recent_comments ul,
-.widget_rss ul,
-.widget_pages ul,
-.widget_archive ul,
-.widget_categories ul,
-.widget_meta ul,
-.widget_recent_entries ul {
-	margin: 0;
+.widget ul {
+    margin: 0;
 	list-style: none;
 }
 
-.widget_nav_menu ul ul.children,
-.widget_recent_comments ul ul.children,
-.widget_rss ul ul.children,
-.widget_pages ul ul.children,
-.widget_archive ul ul.children,
-.widget_categories ul ul.children,
-.widget_meta ul ul.children,
-.widget_recent_entries ul ul.children,
-.widget_nav_menu ul ul.sub-menu {
+.widget ul ul.children{
 	margin-left: 15px;
 }
 
-.widget_nav_menu ul li,
-.widget_recent_comments ul li,
-.widget_rss ul li,
-.widget_pages ul li,
-.widget_archive ul li,
-.widget_categories ul li,
-.widget_meta ul li,
-.widget_recent_entries ul li {
+.widget ul li {
 	font-size: 15px;
 	margin: 0;
 	padding: 8px 0!important;
@@ -3254,14 +3220,7 @@ article .entry-content dd {
 	border-bottom: 1px dotted rgba(0,0,0,0.15);
 }
 
-.widget_nav_menu ul li:last-child,
-.widget_recent_comments ul li:last-child,
-.widget_rss ul li:last-child,
-.widget_pages ul li:last-child,
-.widget_archive ul li:last-child,
-.widget_categories ul li:last-child,
-.widget_meta ul li:last-child,
-.widget_recent_entries ul li:last-child {
+.widget ul li:last-child {
 	border-bottom: 0 none;
 	padding-bottom: 0;
 }
@@ -3487,6 +3446,7 @@ article .entry-content dd {
 .comments-container ol {
 	margin: 0;
 	padding: 0;
+    list-style: none;
 }
 
 .comments-container ol.children {

@@ -6,7 +6,7 @@
  *
  */
 
- var longform = {};
+ var shisan = {};
 
 ( function( $ ) {
 	var body    = $( 'body' ),
@@ -177,7 +177,7 @@
 			return;
 		}
 
-		$( '.menu-toggle' ).on( 'click.longform', function() {
+		$( '.menu-toggle' ).on( 'click.shisan', function() {
 			nav.toggleClass( 'toggled-on' );
 		} );
 	} )();
@@ -188,7 +188,7 @@
 	 *
 	 * @link http://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
 	 */
-	_window.on( 'hashchange.longform', function() {
+	_window.on( 'hashchange.shisan', function() {
 		var element = document.getElementById( location.hash.substring( 1 ) );
 
 		if ( element ) {
@@ -224,7 +224,7 @@
 				toolbarOffset  = body.is( '.admin-bar' ) ? $( '#wpadminbar' ).height() : 0;
 				mastheadOffset = $( '#masthead' ).offset().top - toolbarOffset;
 
-				_window.on( 'scroll.longform', function() {
+				_window.on( 'scroll.shisan', function() {
 					if ( ( window.scrollY > mastheadOffset ) && ( mastheadHeight < 49 ) ) {
 						body.addClass( 'masthead-fixed' );
 					} else {
@@ -235,7 +235,7 @@
 		}
 
 		// Focus styles for menus.
-		$( '.primary-navigation, .secondary-navigation' ).find( 'a' ).on( 'focus.longform blur.longform', function() {
+		$( '.primary-navigation, .secondary-navigation' ).find( 'a' ).on( 'focus.shisan blur.shisan', function() {
 			$( this ).parents().toggleClass( 'focus' );
 		} );
 	} );
