@@ -25,7 +25,7 @@
             $url = esc_attr($commenter['comment_author_url']);
         }
         if ( $cookie ) {
-            $comment_part.= sprintf('<div class="form_row"><span> %1$s %2$s <i class="show-form" >[编辑]</i>， 欢迎回来。</span></div>', $cookie, get_avatar( $email, $size = '24')) ;
+            $comment_part.= sprintf('<div class="form_row"><span> %1$s %2$s <i class="show-form" ><span class="glyphicon glyphicon-retweet" title="换马甲"></span></i>， 欢迎回来。</span></div>', $cookie, get_avatar( $email, $size = '24')) ;
             echo $comment_part;
         }
         else {

@@ -97,7 +97,7 @@ function shisan_comment_cbk( $comment,  $args, $depth ) {
  								?>
  							</time>
  						</a>
- 						<?php edit_comment_link( '编辑', '<span class="edit-link">', '</span>' ); ?>
+ 						<?php edit_comment_link( '<span class="glyphicon glyphicon-edit"></span>', '<span class="edit-link">', '</span>' ); ?>
  					</div><!-- .comment-metadata -->
 
  					<?php if ( '0' == $comment->comment_approved ) : ?>

@@ -121,7 +121,7 @@ function shisan_additional_comment_show( $comment ) {
         <article class="comment-body">
             <footer class="comment-meta">
                 <div class="comment-author vcard">
-                    <?php echo get_avatar( $comment->comment_author_email, $size = '100')?>
+                    <?php echo get_avatar( $comment->comment_author_email, $size = '64')?>
                 </div>
                 <div class="comment-metadata">
                     <span><b class="fn author-url"><?php echo get_comment_author_link(); ?></b>

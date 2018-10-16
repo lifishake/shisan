@@ -48,7 +48,7 @@ if ( ! function_exists( 'shisan_setup' ) ) :
 		add_image_size( 'shisan-full-width', 1170, 600, true );
 		add_image_size( 'shisan-huge-width', 1800, 1200, true );
 		add_image_size( 'shisan-thumbnail', 490, 318, true );
-		add_image_size( 'shisan-thumbnail-large', 490, 318, true );//与普通一样大小
+          add_image_size( 'shisan-related', 9999, 250, true );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
@@ -267,51 +267,6 @@ function shisan_post_classes( $classes ) {
 }
 add_filter( 'post_class', 'shisan_post_classes' );
 
-
-/* Related posts */
-function shisan_the_related_posts() {
-	global $post;
-	$tags = wp_get_post_tags($post->ID);
-
-	if ($tags) {
-		$tag_ids = array();
-
-		foreach($tags as $individual_tag) {
-			$tag_ids[] = $individual_tag->term_id;
-		}
-
-		$args = array(
-			'tag__in'             => $tag_ids,
-			'post__not_in'        => array($post->ID),
-			'posts_per_page'      => 8, // Number of related posts to display.
-			'ignore_sticky_posts' => 1
-		);
-
-		$my_query = new wp_query( $args ); ?>
-
-		<h2 class="related-articles-title">Related articles</h2>
-		<div class="related-articles">
-			<?php
-			while( $my_query->have_posts() ) {
-				$my_query->the_post(); ?>
-
-				<div class="related-thumb col-sm-3 col-md-3 col-lg-3">
-					<a rel="external" href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail(array(500,350)); ?>
-						<div class="related-content">
-							<h2><?php the_title(); ?></h2>
-						</div>
-					</a>
-				</div>
-			<?php } ?>
-			<div class="clearfix"></div>
-		</div>
-    <?php
-	}
-	wp_reset_postdata();
-	wp_reset_query();
-}
-
 /**
  * Create a nicely formatted and more specific title element text for output
  * in head of document, based on current view.
@@ -487,75 +442,100 @@ class Shisan_Header_Menu_Walker extends Walker_Nav_Menu {
 	}
 }
 
-/**
- * 作用: 进行时间比较。
- * 参数: $from string 开始时间
- * 参数: $to string 结束时间
- * 参数: $before string 前修饰文字
- * 参数: $after string 后修饰文字
- * 返回值: string
- * 来源: 破袜子原创
- */
-function shisan_timediff( $from, $to, $before, $after) {
-  if ( empty($from) || empty($to) )
-  return '';
-  if( empty($before) )
-  $before = '于';
-  if( empty($after) )
-  $after = '前';
-  $from_int = strtotime($from) ;
-  $to_int = strtotime($to) ;
-  $diff_time = abs($to_int - $from_int) ;
-  if ( $diff_time > 60 * 60 * 24 * 365 ){//年
-  $num = round($diff_time / (60 * 60 * 24 * 365));
-  $uni = '年';
-  }
-  else if ( $diff_time > 60 * 60 * 24 * 31 ) {//月
-  $num = round($diff_time / (60 * 60 * 24 * 30));
-  $uni = '个月';
-  }
-  else if ( $diff_time > 60 * 60 * 24 ) {//天
-  $num = round($diff_time / (60 * 60 * 24));
-  $uni = '天';
-  }
-  else if ( $diff_time > 60 * 60 ) { //小时
-  $num = round($diff_time / 3600);
-  $uni = '小时';
-  }
-  else { //分钟
-  $num = round($diff_time / 60);
-  $uni = '分';
-  }
-  $return = $before.$num.$uni.$after ;
-  return $return;
-}
-
-/**
- * 作用: 取得文章发表的相对时间。
- * 返回值: string
- * 来源: 破袜子原创
- */
-function shisan_rel_post_date() {
-  global $post;
-  $post_date_time = mysql2date('j-n-Y H:i:s', $post->post_date, false);
-  $current_time = current_time('timestamp');
-  $date_today_time = gmdate('j-n-Y H:i:s', $current_time);
-  return shisan_timediff( $post_date_time, $date_today_time ,'&nbsp;','前' ) ;
-}
-
-/**
- * 作用: 取得评论发表的相对时间。
- * 返回值: string
- * 来源: 破袜子原创
- */
-function shisan_rel_comment_date() {
-  global $post , $comment;
-  $post_date_time = mysql2date('j-n-Y H:i:s', $post->post_date, false);
-  $comment_date_time = mysql2date('j-n-Y H:i:s', $comment->comment_date, false);
-  return shisan_timediff( $post_date_time, $comment_date_time ,'&nbsp;','后' ) ;
-}
 
 /**
  * AJAX-comment
  */
 require_once get_parent_theme_file_path( '/inc/ajax-comment.php' );
+
+
+/**
+ * Add SVG definitions to the footer.
+ */
+function shisan_include_svg_icons() {
+	// Define SVG sprite file.
+	$svg_icons = get_parent_theme_file_path( '/images/svg-icons.svg' );
+
+	// If it exists, include it.
+	if ( file_exists( $svg_icons ) ) {
+		require_once( $svg_icons );
+	}
+}
+add_action( 'wp_footer', 'shisan_include_svg_icons', 9999 );
+
+/**
+ * Return SVG markup.
+ *
+ * @param string  $icon  Required SVG icon filename.
+ * }
+ * @return string SVG markup.
+ */
+function shisan_get_svg( $icon ) {
+	// Make sure $args are an array.
+	// Define an icon.
+	if ( !$icon || '' === $icon ) {
+		return '缺少SVG图标文件名.';
+	}
+	// Begin SVG markup.
+	$svg = '<svg class="icon icon-' . esc_attr( $icon ) .  '" role="img">';
+
+	$svg .= ' <use href="#icon-' . esc_html( $icon ) . '" xlink:href="#icon-' . esc_html( $icon ) . '"></use> ';
+
+	$svg .= '</svg>';
+
+	return $svg;
+}
+
+/**
+ * Display SVG icons in social links menu.
+ *
+ * @param  string  $item_output The menu item output.
+ * @param  WP_Post $item        Menu item object.
+ * @param  int     $depth       Depth of the menu.
+ * @param  array   $args        wp_nav_menu() arguments.
+ * @return string  $item_output The menu item output with social icon.
+ */
+function shisan_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+	// Get supported social icons.
+	$social_icons = shisan_social_links_icons();
+
+	// Change SVG icon inside social links menu if there is supported URL.
+	if ( 'footer' === $args->theme_location ) {
+		foreach ( $social_icons as $attr => $value ) {
+			if ( false !== strpos( $item_output, $attr ) ) {
+				$item_output = str_replace( $args->link_after, '</span>' . shisan_get_svg(  esc_attr( $value ) ), $item_output );
+			}
+		}
+	}
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'shisan_nav_menu_social_icons', 10, 4 );
+
+
+/**
+ * Returns an array of supported social links (URL and icon name).
+ *
+ * @return array $social_links_icons
+ */
+function shisan_social_links_icons() {
+	// Supported social links icons.
+	$social_links_icons = array(
+		'facebook.com'    => 'facebook',
+		'github.com'      => 'github',
+		'linkedin.com'    => 'linkedin',
+		'mailto:'         => 'envelope-o',
+		'twitter.com'     => 'twitter',
+		'youtube.com'     => 'youtube',
+		'music.163.com'	  => 'cloudmusic',
+		'/feed'	  => 'rss',
+	);
+
+	/**
+	 * Filter Twenty Seventeen social links icons.
+	 *
+	 * @since Twenty Seventeen 1.0
+	 *
+	 * @param array $social_links_icons
+	 */
+	return apply_filters( 'shisan_social_links_icons', $social_links_icons );
+}

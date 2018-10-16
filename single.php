@@ -21,12 +21,18 @@ global $shisan_site_width;
 
 					get_template_part( 'content', get_post_format() );
 
-					?><div class="clearfix"></div><?php
-
-					the_tags( '<footer class="entry-meta"><span class="tag-links">', '', '</span></footer>' );
-
+					?><div class="clearfix"></div>
+                        <footer class="entry-meta">
+                        <?php
+                        if ( is_single() && (!(has_tag('zhuanzai') || has_category('zhaichaohedaolian'))) ) {
+                                get_template_part( 'meta', 'license' );
+                                }
+					           the_tags( '<span class="glyphicon glyphicon-tags"></span><span class="tag-links">', '', '</span>' );
+                        ?>
+                        </footer>
+                        <?php
 					// More posts like this
-					echo shisan_the_related_posts();
+					 shisan_the_related_posts();
 
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) {

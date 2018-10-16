@@ -16,6 +16,11 @@
     $(document).on('click', '.show-form', function() {
     		$('#author_info').toggle(300);
     	});
+    $( document ).ready( function() {
+        if ( $('.show-form').length > 0 ){
+			$('#author_info').toggle(10);
+		}
+    });
 
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 100) {

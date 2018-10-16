@@ -21,7 +21,7 @@
 			<div class="site-info col-sm-12 col-md-12 col-lg-12">
 				<div class="site-info-content">
 					<div class="copyright">
-						主题【<a href="http://cohhe.com/" target="_blank">十三</a>】修改自<a href="https://cohhe.com/project-view/longform/" target = "_blank">longform</a>，原作者 <a href="http://cohhe.com/" target="_blank">Cohhe</a>.
+						<?php echo (' &copy; 2005-'.date('Y').' 破袜子&nbsp;&nbsp;主题&nbsp;'); ?><a href="https://github.com/lifishake/shisan" target="_blank">十三&nbsp;</a>修改自&nbsp;<a href="https://cohhe.com/project-view/longform/" target = "_blank">longform</a>.
 					</div>
 					<div class="footer-menu">
 						<?php
@@ -29,7 +29,9 @@
 								array(
 									'theme_location' => 'footer',
 									'menu_class'     => 'footer-menu',
-									'depth'          => 1
+									'depth'          => 1,
+                                             'link_before'    => '<span class="screen-reader-text">',
+								     'link_after'     => '</span>' . shisan_get_svg(  'chain' ),
 								)
 							);
 						?>

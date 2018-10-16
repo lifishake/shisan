@@ -15,21 +15,18 @@
 	<header class="entry-header">
 		<?php
 
-			if ( !is_single() ) : ?>
-					<span class="cat-links"><?php the_category(', '); ?></span>
-			<?php
+			if ( !is_single() ) :
 					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 				?>
 
 				<div class="entry-meta">
 					<?php
-						if ( 'post' == get_post_type() )
-							shisan_posted_on();
-
-						if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
-					?>
-					<?php
-						endif;
+						if ( 'post' == get_post_type() ) {
+                                     shisan_weather();
+                                    shisan_posted_on();
+                                    shisan_cat();
+                                    shisan_comment();
+                              }
 					?>
 				</div><!-- .entry-meta -->
 
@@ -39,17 +36,19 @@
 	</header><!-- .entry-header -->
 
     <?php if ( !is_single() ) : ?>
-    	<div class="entry-summary">
-    		<?php the_excerpt(); ?>
-    	</div><!-- .entry-summary -->
-    	<?php else : ?>
+        <?php if ( !is_home() ) { ?>
+        	<div class="entry-summary">
+        		<?php the_excerpt(); ?>
+        	</div><!-- .entry-summary -->
+        <?php } ?>
+    <?php  else : ?>
     	<div class="entry-content">
     		<div id="entry-content-wrapper">
     			<?php the_content( ); ?>
     		</div>
     	</div><!-- .entry-content -->
     	<?php endif;
-            edit_post_link(  '编辑', '<span class="edit-link">', '</span>' );
+            edit_post_link(  '<span class="glyphicon glyphicon-edit"></span>', '<span class="edit-link">', '</span>' );
         ?>
 
 
