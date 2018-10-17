@@ -137,16 +137,12 @@ $layout_type   = 'full';
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				<div class="entry-meta">
 					<?php
-						if ( 'post' == get_post_type() )
-							shisan_posted_on(); ?>
-							<span class="cat-links">/<?php the_category(', '); ?></span>
-					<?php
-						if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
-					?>
-					<span class="comments-link">/<?php comments_popup_link(  '0 条评论', '1 条评论', '% 条评论' ); ?></span>
-					<?php
-						endif;
-					?>
+                            if ( 'post' == get_post_type() )
+                                        shisan_weather('text');
+                                        shisan_posted_on();
+                                        shisan_cat();
+                                        shisan_comment();
+                            ?>
 				</div><!-- .entry-meta -->
 			</div>
 		<?php } ?>

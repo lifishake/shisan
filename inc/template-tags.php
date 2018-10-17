@@ -50,7 +50,7 @@ if ( ! function_exists( 'shisan_posted_on' ) ) :
  */
 function shisan_posted_on() {
 	if ( is_sticky() && is_home() && ! is_paged() ) {
-		echo '<span class="sticky-featured-post">顶置</span>';
+		echo '<span class="sticky-featured-post"><span class="glyphicon glyphicon-pushpin"></span></span>';
 	}
 	printf( '<span class="postdate"><span class="glyphicon glyphicon-calendar"></span><time class="entry-date published updated" datetime="%1$s">%2$s</time></span>',
     get_the_date( DATE_W3C ),

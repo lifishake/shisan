@@ -44,11 +44,10 @@ if ( ! function_exists( 'shisan_setup' ) ) :
 
 		// Enable support for Post Thumbnails, and declare two sizes.
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 672, 372, true );
 		add_image_size( 'shisan-full-width', 1170, 600, true );
 		add_image_size( 'shisan-huge-width', 1800, 1200, true );
 		add_image_size( 'shisan-thumbnail', 490, 318, true );
-          add_image_size( 'shisan-related', 9999, 250, true );
+          add_image_size( 'shisan-related', 375, 250, true );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
