@@ -33,26 +33,36 @@ function shisan_customize_register( $wp_customize ) {
 	$wp_customize->get_control( 'display_header_text' )->label = 'Display Site Title &amp; Tagline';
 
 	// Add the featured content section in case it's not already there.
-	$wp_customize->add_section( 'featured_content', array(
-		'title'       => '特色内容',
-		'description' => sprintf(  '设定一个 <a href="%1$s">标签</a> 作为特色文章的标志。如果没有符合这个标签的文章，则显示 <a href="%2$s">置顶文章</a>', admin_url( '/edit.php?tag=featured' ), admin_url( '/edit.php?show_sticky=1' ) ),
-		'priority'    => 130,
-	) );
+    $wp_customize->add_section( 'featured_content', array(
+       'title'       => '特色内容',
+      'description' => '指定特色内容的文章编号，或者某个标签的最新内容。优先显示编号，最多显示4篇文章。',
+      'priority'    => 130,
+      'theme_supports' => 'featured-content',
+    ) );
 
-	// Add the featured content layout setting and control.
-	$wp_customize->add_setting( 'featured_content_layout', array(
-		'default'           => 'slider',
-		'sanitize_callback' => 'shisan_sanitize_layout',
-	) );
+    // Add Featured Content settings.
+    $wp_customize->add_setting( 'featured_post_ids', array(
+      'default'              => '0',
+      'type'                 => 'option',
+      'sanitize_js_callback' => 'esc_attr',
+    ) );
+    $wp_customize->add_setting( 'featured_post_tag', array(
+      'default'              => 'default',
+      'type'                 => 'option',
+      'sanitize_js_callback' => 'esc_attr',
+    ) );
 
-	$wp_customize->add_control( 'featured_content_layout', array(
-		'label'   => '页面形式',
-		'section' => 'featured_content',
-		'type'    => 'select',
-		'choices' => array(
-			'slider' => 'Slider',
-		),
-	) );
+    // Add Featured Content controls.
+    $wp_customize->add_control( 'featured_post_ids', array(
+      'label'    => '特色文章号',
+      'section'  => 'featured_content',
+      'priority' => 20,
+    ) );
+    $wp_customize->add_control( 'featured_post_tag', array(
+      'label'    => '特色标签',
+      'section'  => 'featured_content',
+      'priority' => 30,
+    ) );
 
 	// Add General setting panel and configure settings inside it
 	$wp_customize->add_panel( 'shisan_general_panel', array(
@@ -81,23 +91,6 @@ function shisan_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'shisan_customize_register' );
-
-/**
- * Sanitize the Featured Content layout value.
- *
- * @since Shisan 1.0
- *
- * @param string $layout Layout type.
- * @return string Filtered layout type (grid|slider).
- */
-function shisan_sanitize_layout( $layout ) {
-	if ( ! in_array( $layout, array( 'slider' ) ) ) {
-		$layout = 'slider';
-	}
-
-	return $layout;
-}
-
 /**
  * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
  *

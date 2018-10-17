@@ -76,12 +76,6 @@ if ( ! function_exists( 'shisan_setup' ) ) :
 			'default-color' => 'f5f5f5',
 		) ) );
 
-		// Add support for featured content.
-		add_theme_support( 'featured-content', array(
-			'featured_content_filter' => 'shisan_get_featured_posts',
-			'max_posts' => 6,
-		) );
-
 		// This theme uses its own gallery styles.
 		add_filter( 'use_default_gallery_style', '__return_false' );
 	}
@@ -109,14 +103,33 @@ add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
  * @return array An array of WP_Post objects.
  */
 function shisan_get_featured_posts() {
-	/**
-	 * Filter the featured posts to return in Shisan 1.0.
-	 *
-	 * @since Shisan 1.0
-	 *
-	 * @param array|bool $posts Array of featured posts, otherwise false.
-	 */
-	return apply_filters( 'shisan_get_featured_posts', array() );
+    $featured_ids_str =  get_option('featured_post_ids');
+    $featured_tag_name = get_option('featured_post_tag');
+    $limits = 4;
+    $ided_posts = array();
+    $taged_posts = array();
+    if ( '' != $featured_ids_str ) {
+        $featured_ids = explode(',', $featured_ids_str);
+        $args = array(
+            'numberposts' => $limits,
+            'post__in' => $featured_ids
+        );
+        $ided_posts = get_posts($args);
+    }
+    $limits = $limits - count($ided_posts);
+    if ( '' !=  $featured_tag_name && $limits > 0 )  {
+        $term = get_term_by( 'name', $featured_tag_name, 'post_tag' );
+        if ( !empty($term) ) {
+            $args = array(
+                'numberposts' => $limits,
+                'tag__in' =>array($term->term_id),
+                'post__not_in'=>$featured_ids
+            );
+            $taged_posts = get_posts($args);
+        }
+    }
+    $result = array_merge($ided_posts,$taged_posts);
+    return $result;
 }
 
 /**
@@ -239,8 +252,9 @@ function shisan_body_classes( $classes ) {
 	if ( is_singular() && ! is_front_page() ) {
 		$classes[] = 'singular';
 	}
+
 	if ( is_front_page()  ) {
-		$classes[] = 'slider';
+		$classes[] = 'grid';
 	}
 
 	return $classes;
@@ -320,10 +334,11 @@ require get_template_directory(). '/inc/ajax-comment.php' ;
  * To overwrite in a plugin, define your own Featured_Content class on or
  * before the 'setup_theme' hook.
  */
+ /*
 if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 	require get_template_directory() . '/inc/featured-content.php';
 }
-
+*/
 /**
  * Create HTML list of nav menu items.
  * Replacement for the native Walker, using the description.
