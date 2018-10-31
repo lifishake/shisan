@@ -24,10 +24,10 @@ global $shisan_site_width;
 					?><div class="clearfix"></div>
                         <footer class="entry-meta">
                         <?php
-                        if ( is_single() && (!(has_tag('zhuanzai') || has_category('zhaichaohedaolian'))) ) {
-                                get_template_part( 'meta', 'license' );
-                                }
-					           the_tags( '<span class="glyphicon glyphicon-tags"></span><span class="tag-links">', '', '</span>' );
+                            if ( is_single() && (!(has_tag('zhuanzai') || has_category('zhaichaohedaolian'))) ) {
+                                    get_template_part( 'meta', 'license' );
+                                    }
+                            the_tags( '<span class="glyphicon glyphicon-tags"></span><span class="tag-links">', '', '</span>' );
                         ?>
                         </footer>
                         <?php
