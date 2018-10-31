@@ -1,6 +1,6 @@
 <?php
 /**
- * Longform 1.0 Theme Customizer support
+ * Shisan 1.0 Theme Customizer support
  *
  * @package WordPress
  * @subpackage Shisan

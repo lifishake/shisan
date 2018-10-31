@@ -1,5 +1,5 @@
 /**
- * Longform 1.0 Theme Customizer enhancements for a better user experience.
+ * Shisan 1.0 Theme Customizer enhancements for a better user experience.
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */

@@ -24,7 +24,10 @@
  * @subpackage Shisan
  * @since Shisan 1.0
  */
-
+ if ( ! isset( $content_width ) ) {
+ 	$content_width = 800;
+ }
+ 
 if ( ! function_exists( 'shisan_setup' ) ) :
 	/**
 	 * Shisan 1.0 setup.
