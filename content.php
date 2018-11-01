@@ -48,7 +48,6 @@
     		</div>
     	</div><!-- .entry-content -->
     	<?php endif;
-            edit_post_link(  '<span class="glyphicon glyphicon-edit"></span>', '<span class="edit-link">', '</span>' );
         ?>
 
 

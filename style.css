@@ -5,7 +5,7 @@ GitHub Theme URI://github.com/lifishake/shisan
 Author: 大致
 Author URI: //pewae.com
 Description: 基于主题Longform修改。
-Version: 1.1
+Version: 1.2
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags:  custom-background, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -347,12 +347,10 @@ ol {
 }
 
 ul {
-	list-style: disc;
 	list-style-position: inside;
 }
 
 ol {
-	list-style: decimal;
 	list-style-position: inside;
 }
 
@@ -635,6 +633,12 @@ footer.entry-meta,
 	margin-left: auto;
 	margin-right: auto;
 }
+
+body .site-content article .entry-header .entry-title,
+body .site-content article .entry-meta {
+    text-align: left;
+}
+
 
 .tiled-gallery,
 .tiled-gallery .gallery-row {
@@ -2968,7 +2972,7 @@ body.archive .site-content > article:nth-of-type(1) {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	margin: 20px 0px 40px 0px;
+	margin: 20px 0px 10px 0px;
 	padding: 0px;
 	border-top: 1px dashed #e5e5e5;
 	padding-top: 40px;
@@ -3054,14 +3058,12 @@ body.archive .site-content > article:nth-of-type(1) {
 .site-content article .entry-header .entry-title {
 	margin: 0 0 20px 0;
 	padding: 0 0 0 0;
-	font-size: 37px;
-	line-height: 47px;
+	font-size: 2.2em;
 }
 
 .without_thumbnail.container .entry-title,
 .intro-effect-fadeout .intro-effect-bg-img-container .entry-title {
-	font-size: 66px;
-	line-height: 76px;
+	font-size: 3em;
 	margin-top: 30%;
 	text-align: center;
 	margin-right: auto;
@@ -3106,7 +3108,7 @@ body:not(.modify).intro-effect-fadeout .intro-effect-bg-img-container .entry-tit
 }
 
 .site-content article .entry-header {
-	padding: 35px 0 45px;
+	padding: 35px 0 15px;
 	text-align: center;
 }
 
@@ -3524,7 +3526,7 @@ article .entry-content dd {
 
 .comments-container ol.children {
 	margin-bottom: 0;
-	margin-left: 85px;
+	margin-left: 1em;
 	list-style-type: none;
 }
 
@@ -3562,6 +3564,27 @@ article .entry-content dd {
 	color: #000;
 }
 
+.comment-author .avatar  {
+	border: 3px solid #ccc;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+}
+
+.comment-author.vcard a.url img.avatar {
+	border-color:  #09c;
+	opacity: 0.5;
+}
+
+.comment-author.vcard a.url img.avatar:hover {
+	opacity: 1;
+    border-color:  #ff5c1a;
+	-webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
 .comments-container .comment-meta {
 	font-size: 12px;
 }
@@ -3582,16 +3605,41 @@ article .entry-content dd {
 	margin-right: 20px;
 }
 
+.children .comment-author .avatar {
+	height: 40px;
+	left: -45px;
+	width: 40px;
+	display: none;
+}
+
+.bypostauthor > .comment-body > .comment-meta > .comment-author .avatar {
+	padding: 2px;
+}
+
+.bypostauthor > .comment-body .comment-meta > .author-url {
+	text-shadow: 0px 1px 2px #FFFFFF;
+}
+
+b.author-url,
+b.author-url a {
+    font-weight: 700;
+}
+
+li.bypostauthor > article > footer > div.comment-metadata > b.author-url,
+li.bypostauthor > article > footer > div.comment-metadata > b.author-url a {
+    color: #555;
+}
+
 .comments-container .comment {
 	margin-top: 25px;
 }
 
 .comment-content {
-	display: block;
+	display: inline-block;
 	clear: both;
 	overflow: hidden;
 	margin-top: 0;
-	margin-left: 84px;
+	margin-left: 1em;
 	padding-right: 35px;
 	padding-bottom: 10px;
 }

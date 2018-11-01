@@ -23,6 +23,7 @@ if ( post_password_required() ) {
         $comment_arg['count']='true';
         $comment_arg['user_id']=0;/*don't count for known users*/
         $comment_arg['type']='comment';
+        $comment_arg['status']='approve';
     printf('已有%1$s条评论', get_comments($comment_arg) );
 		?>
 	</h2>
@@ -74,30 +75,35 @@ if ( post_password_required() ) {
 
 <?php
 function shisan_comment_cbk( $comment,  $args, $depth ) {
-    $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+    $comment_author_url = $comment->comment_author_url;
+    $avatar_img = get_avatar( $comment, $args['avatar_size'] );
+    $comment_author_name = $comment->comment_author;
+    $parent_comment_id = $comment->comment_parent ;
  ?>
- 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( ); ?>>
+ 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( ); ?>>
  			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
  				<footer class="comment-meta">
  					<div class="comment-author vcard">
- 						<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
- 						<?php
- 							/* translators: %s: comment author link */
- 							printf(  '%s <span class="says">说:</span>' ,
- 								sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
- 							);
- 						?>
+ 						<?php  if ( $comment_author_url ) {
+                            printf('<a class="url" href="%1$s" target="_blank" rel="external nofollow" title="%2$s">%3$s</a>', $comment_author_url, $comment_author_name, $avatar_img);
+                        } else {
+                            echo $avatar_img;
+                        }
+                         ?>
  					</div><!-- .comment-author -->
 
  					<div class="comment-metadata">
- 						<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
+                             <?php if (''===$comment_author_url || $parent_comment_id > 0) {
+                                        printf( '<b class="fn author-url">%s</b>', get_comment_author_link( $comment ) );
+                                    }
+                                       if ( $parent_comment_id > 0 ) {
+                                         printf( '<span class="mention"> @%1s </span>', get_comment_author($parent_comment_id) );
+                                     } ?>
  							<time datetime="<?php comment_time( 'c' ); ?>">
  								<?php
  									echo shisan_rel_comment_date();
  								?>
  							</time>
- 						</a>
- 						<?php edit_comment_link( '<span class="glyphicon glyphicon-edit"></span>', '<span class="edit-link">', '</span>' ); ?>
  					</div><!-- .comment-metadata -->
 
  					<?php if ( '0' == $comment->comment_approved ) : ?>
