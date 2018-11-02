@@ -104,6 +104,14 @@ function shisan_comment_cbk( $comment,  $args, $depth ) {
  									echo shisan_rel_comment_date();
  								?>
  							</time>
+                                    <?php
+                                    comment_reply_link( array_merge( $args, array(
+                     					'add_below' => 'div-comment',
+                     					'depth'     => $depth,
+                     					'max_depth' => $args['max_depth'],
+                                             'reply_text'=> '@TA'
+                     				) ) );
+                                     ?>
  					</div><!-- .comment-metadata -->
 
  					<?php if ( '0' == $comment->comment_approved ) : ?>
@@ -116,14 +124,7 @@ function shisan_comment_cbk( $comment,  $args, $depth ) {
  				</div><!-- .comment-content -->
 
  				<?php
- 				comment_reply_link( array_merge( $args, array(
- 					'add_below' => 'div-comment',
- 					'depth'     => $depth,
- 					'max_depth' => $args['max_depth'],
- 					'before'    => '<div class="reply">',
-                         'reply_text'=> '回复',
- 					'after'     => '</div>'
- 				) ) );
+
  				?>
  			</article><!-- .comment-body -->
  <?php

@@ -289,7 +289,7 @@ function shisan_the_related_posts($limit = 4) {
     <h2 class="related-articles-title">关联文章</h2>
         <div class="related-articles">
             <?php
-            $default = sprintf('<img src="%1$s" class="attachment-shisan-related size-shisan-related wp-post-image" alt="" sizes="(max-width: 333px) 100vw, 333px" data-src="%1$s" data-unveil="true" style="opacity: 1;" width="333" height="250">',
+            $default = sprintf('<img src="%1$s" class="attachment-shisan-related size-shisan-related wp-post-image" alt="" sizes="(max-width: 333px) 100vw, 333px" data-src="%1$s"  width="333" height="250">',
                 get_template_directory_uri()."/images/default.jpg" );
             foreach ( $object_ids as $id ) :
                 if (has_post_thumbnail($id)) {
