@@ -5,7 +5,7 @@ GitHub Theme URI://github.com/lifishake/shisan
 Author: 大致
 Author URI: //pewae.com
 Description: 基于主题Longform修改。
-Version: 1.4
+Version: 1.5
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags:  custom-background, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -2946,12 +2946,12 @@ body.archive .site-content > article:nth-of-type(1) {
 .site-content article .entry-header .entry-title {
 	margin: 0 0 20px 0;
 	padding: 0 0 0 0;
-	font-size: 2.2em;
+	font-size: 1.75em;
 }
 
 .without_thumbnail.container .entry-title,
 .intro-effect-fadeout .intro-effect-bg-img-container .entry-title {
-	font-size: 3em;
+	font-size: 1.75em;
 	margin-top: 30%;
 	text-align: center;
 	margin-right: auto;
@@ -2987,6 +2987,7 @@ body:not(.modify).intro-effect-fadeout .intro-effect-bg-img-container .entry-tit
 .site-content article .entry-header .entry-title a {
 	color: #333;
 	font-weight: 700;
+    padding-left: 5px;
 }
 
 .site-content article .entry-header .entry-title a:hover {
@@ -3895,7 +3896,79 @@ article .entry-content table tr:nth-child(even) {
 	float: left;
     font-size:12px;
 }
+.site-footer-wrapper .nav-links a{
+    border:none;
+}
+.site-footer-wrapper .nav-links .nav-previous,
+.site-footer-wrapper .nav-links .nav-next{
+    display: flex;
+    position: fixed;
+    bottom: 15px;
+    width: 30px;
+	height: 30px;
+	background: transparent;
+	font-size: 15px;
+	line-height: 30px;
+	text-align: center;
+	z-index: 5;
+    -webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+}
 
+.site-footer-wrapper .nav-links .nav-previous a,
+.site-footer-wrapper .nav-links .nav-next a{
+    color:#09c;
+}
+.site-footer-wrapper .nav-links .nav-previous a:hover,
+.site-footer-wrapper .nav-links .nav-next a:hover{
+    color:#ff5c1a;
+}
+
+.site-footer-wrapper .nav-links a span.post-right,
+.site-footer-wrapper .nav-links a span.post-left {
+	display: none;
+	position: absolute;
+	line-height: 18px;
+	text-align: right;
+	font-size: 12px;
+    top:auto;
+    right: auto;
+	bottom: 30px;
+	left: 0;
+	white-space: nowrap;
+	background: rgba(115, 115, 115, 0.48);
+	color: #fff;
+	padding: 2px 10px;
+}
+
+.site-footer-wrapper .nav-links a:hover span.post-right,
+.site-footer-wrapper .nav-links a:hover span.post-left {
+	display: block;
+}
+
+.site-footer-wrapper .nav-links .nav-previous:hover,
+.site-footer-wrapper .nav-links .nav-next:hover{
+    opacity: 0.8;
+    color:#ff5c1a;
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.site-footer-wrapper .nav-links .nav-previous .glyphicon,
+.site-footer-wrapper .nav-links .nav-next .glyphicon {
+    padding:0;
+}
+
+.site-footer-wrapper .nav-links .nav-next{
+    left: 47px;
+}
+.site-footer-wrapper .nav-links .nav-previous{
+    left: 15px;
+}
 .site-footer-wrapper .scroll-to-top {
 	display: none;
 	position: fixed;

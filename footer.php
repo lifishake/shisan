@@ -37,6 +37,19 @@
 						?>
 					</div>
 				</div>
+                        <?php 
+                        $args = array(
+                                'prev_text' => '<span class="glyphicon glyphicon-arrow-left"></span><span class="post-left">%title</span>',
+                                'next_text' => '<span class="post-right">%title</span><span class="glyphicon glyphicon-arrow-right">',
+                                'screen_reader_text'=>'文章导航'
+                            );
+                         if ( function_exists('apip_get_post_navagation') ){
+                            apip_get_post_navagation( $args );
+                        }
+                        else {
+                            the_post_navigation( $args );
+                        }
+                        ?>
 					<a class="scroll-to-top" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
 				<div class="clearfix"></div>
 			</div><!-- .site-info -->

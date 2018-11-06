@@ -24,8 +24,10 @@
 
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 100) {
+               $('.nav-links').fadeIn();
 			$('.scroll-to-top').fadeIn();
 		} else {
+               $('.nav-links').fadeOut();
 			$('.scroll-to-top').fadeOut();
 		}
 

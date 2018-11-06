@@ -194,10 +194,10 @@ add_action( 'widgets_init', 'shisan_widgets_init' );
  */
 function shisan_scripts() {
 
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '20181105' );
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '20181106' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'shisan-style', get_stylesheet_uri(), array(),'20181105');
+	wp_enqueue_style( 'shisan-style', get_stylesheet_uri(), array(),'20181106');
 
 	// Load the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'shisan-ie', get_template_directory_uri() . '/css/ie.css', array( 'shisan-style' ), '20181105' );
@@ -211,7 +211,7 @@ function shisan_scripts() {
 		wp_enqueue_script( 'jquery-masonry' );
 	}
 
-	wp_enqueue_script( 'shisan-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20181009', true );
+	wp_enqueue_script( 'shisan-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20181106', true );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20181009', true );
 
 	wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.min.css', array() );
