@@ -30,9 +30,10 @@ if ( post_password_required() ) {
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 	<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php echo( '评论导航' ); ?></h1>
-		<div class="nav-previous"><?php previous_comments_link( '&larr; ' ) ; ?></div>
-		<div class="nav-next"><?php next_comments_link(  '&rarr;'  ); ?></div>
+        <?php the_comments_pagination( array(
+			'prev_text' => '&larr;<span class="screen-reader-text">前一页</span>',
+			'next_text' => '<span class="screen-reader-text">后一页</span>&rarr;',
+		) );?>
 	</nav><!-- #comment-nav-above -->
 	<?php endif; // Check for comment navigation. ?>
 
