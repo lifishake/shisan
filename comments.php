@@ -28,15 +28,6 @@ if ( post_password_required() ) {
 		?>
 	</h2>
 
-	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-	<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-        <?php the_comments_pagination( array(
-			'prev_text' => '&larr;<span class="screen-reader-text">前一页</span>',
-			'next_text' => '<span class="screen-reader-text">后一页</span>&rarr;',
-		) );?>
-	</nav><!-- #comment-nav-above -->
-	<?php endif; // Check for comment navigation. ?>
-
 <?php
     $args =  array(
         'style'      => 'ol',
@@ -56,11 +47,11 @@ if ( post_password_required() ) {
 	</ol><!-- .comment-list -->
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-	<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-		<h1 class="screen-reader-text">评论导航</h1>
-		<div class="nav-previous"> '&larr; '</div>
-		<div class="nav-next">‘&rarr;'</div>
-	</nav><!-- #comment-nav-below -->
+        <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+    		<h1 class="screen-reader-text"><?php echo( '评论导航' ); ?></h1>
+    		<div class="nav-previous"><?php previous_comments_link( '&larr; 更早的评论' ) ; ?></div>
+    		<div class="nav-next"><?php next_comments_link(  '&rarr; 更新的评论'  ); ?></div>
+    	</nav><!-- #comment-nav-above -->
 	<?php endif; // Check for comment navigation. ?>
 
 	<?php if ( ! comments_open() ) : ?>
