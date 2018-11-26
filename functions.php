@@ -211,7 +211,7 @@ function shisan_scripts() {
 		wp_enqueue_script( 'jquery-masonry' );
 	}
 
-	wp_enqueue_script( 'shisan-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20181106', true );
+	wp_enqueue_script( 'shisan-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20181126', true );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20181009', true );
 
 	wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.min.css', array() );
