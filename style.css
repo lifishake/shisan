@@ -5,7 +5,7 @@ GitHub Theme URI://github.com/lifishake/shisan
 Author: 大致
 Author URI: //pewae.com
 Description: 基于主题Longform修改。
-Version: 1.7
+Version: 1.8
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags:  custom-background, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -3497,7 +3497,7 @@ ol.commentlist li.comment.depth-1:hover {
 
 .comment-author.vcard a.url img.avatar:hover {
 	opacity: 1;
-    border-color:  #ff5c1a;
+    border-color:  #3ce;
 	-webkit-animation: swing 1s ease;
     animation: swing 1s ease;
     -webkit-animation-iteration-count: 1;

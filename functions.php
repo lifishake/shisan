@@ -197,7 +197,7 @@ function shisan_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '20181106' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'shisan-style', get_stylesheet_uri(), array(),'20181106');
+	wp_enqueue_style( 'shisan-style', get_stylesheet_uri(), array(),'20181126');
 
 	// Load the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'shisan-ie', get_template_directory_uri() . '/css/ie.css', array( 'shisan-style' ), '20181105' );
