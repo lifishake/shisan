@@ -48,7 +48,7 @@ function shisan_newcomment(  ) {
 	$comment_content      = ( isset($_POST['comment']) ) ? trim($_POST['comment']) : null;
 
     //强制把链接格式改成//开头,去掉http://www.
-    $comment_author_url = preg_replace('|^http(s)?://(www\.)?|i', '//', $comment_author_url);
+    //$comment_author_url = preg_replace('|^http(s)?://(www\.)?|i', '//', $comment_author_url);
 
     $user = wp_get_current_user();
     if ( $user->exists() ) {
